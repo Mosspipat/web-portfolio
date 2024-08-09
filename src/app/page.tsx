@@ -7,6 +7,10 @@ import { gsap } from "gsap";
 import { useEffect } from "react";
 import Image from "next/image";
 import { fromTitle, toTitle } from "@/GSAPTween";
+import { IoLogoCss3, IoLogoJavascript } from "react-icons/io5";
+import { TbBrandReactNative } from "react-icons/tb";
+import { FaHtml5, FaVuejs } from "react-icons/fa6";
+import { SiTypescript } from "react-icons/si";
 
 export default function Home() {
   const imageProfile = "/portfolio/imageProfile-1.jpeg";
@@ -87,14 +91,38 @@ export default function Home() {
             Programming language skills
           </h2>
           <div className="skill-list flex flex-wrap gap-10">
-            <SkillItem name="JavaScript" level="Advanced" icon="js" />
-            <SkillItem name="React Native" level="Beginner" icon="react" />
-            <SkillItem name="Vue.js" level="Intermediate" icon="vue" />
-            <SkillItem name="Next.js" level="Beginner" icon="nextjs" />
-            <SkillItem name="HTML" level="Advanced" icon="html" />
-            <SkillItem name="CSS" level="Advanced" icon="css" />
-            <SkillItem name="TypeScript" level="Intermediate" icon="ts" />
-            <SkillItem name="C#" level="Intermediate" icon="csharp" />
+            <SkillItem
+              name="JavaScript"
+              level="Advanced"
+              iconElement={<IoLogoJavascript className="" size={100} />}
+            />
+            <SkillItem
+              name="React Native"
+              level="Beginner"
+              iconElement={<TbBrandReactNative className="" size={100} />}
+            />
+            <SkillItem
+              name="Vue.js"
+              level="Intermediate"
+              iconElement={<FaVuejs className="" size={100} />}
+            />
+            <SkillItem name="Next.js" level="Beginner" iconElement="nextjs" />
+            <SkillItem
+              name="HTML"
+              level="Advanced"
+              iconElement={<FaHtml5 className="" size={100} />}
+            />
+            <SkillItem
+              name="CSS"
+              level="Advanced"
+              iconElement={<IoLogoCss3 className="" size={100} />}
+            />
+            <SkillItem
+              name="TypeScript"
+              level="Intermediate"
+              iconElement={<SiTypescript className="" size={100} />}
+            />
+            <SkillItem name="C#" level="Intermediate" iconElement="csharp" />
           </div>
         </section>
       </main>

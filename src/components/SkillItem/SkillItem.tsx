@@ -1,16 +1,16 @@
 "use client";
 
 import { gsap } from "gsap";
-import { useEffect } from "react";
+import { ReactNode, useEffect } from "react";
 
 export const SkillItem = ({
   name,
   level,
-  icon,
+  iconElement,
 }: Readonly<{
   name: string;
   level: string;
-  icon: string;
+  iconElement?: ReactNode;
 }>) => {
   useEffect(() => {
     gsap.fromTo(
@@ -35,8 +35,9 @@ export const SkillItem = ({
   }, []);
 
   return (
-    <div className="skill-item bg-slate-500">
-      <div className={`skill-icon skill-icon--${icon}`} />
+    <div className="skill-item bg-slate-500 flex flex-col items-center p-2  rounded-lg w-40">
+      <div className={`skill-icon`} />
+      {iconElement || null}
       <div className="skill-info">
         <h3 className="text-xl font-bold">{name}</h3>
         <p className="text-sm">{level}</p>
