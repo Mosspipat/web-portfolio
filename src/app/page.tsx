@@ -91,6 +91,8 @@ export default function Home() {
               src={imageProfile}
               className="rounded-full w-[600px] h-[600px] object-cover m-auto"
               alt="imageProfile"
+              width={600}
+              height={600}
             />
           </div>
         </section>
