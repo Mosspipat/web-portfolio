@@ -6,60 +6,22 @@ import React from "react";
 import { gsap } from "gsap";
 import { useEffect } from "react";
 import Image from "next/image";
+import { fromTitle, toTitle } from "@/GSAPTween";
 
 export default function Home() {
   const imageProfile = "/portfolio/imageProfile-1.jpeg";
 
   useEffect(() => {
-    gsap.fromTo(
-      ".welcome-text",
-      {
-        x: -10,
-        opacity: 0,
-      },
-      {
-        x: 0,
-        opacity: 1,
-        duration: 2,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".welcome-text",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-        onComplete: () => {
-          gsap.fromTo(
-            ".description-text",
-            {
-              x: 10,
-              opacity: 0,
-            },
-            {
-              x: 0,
-              opacity: 1,
-              duration: 2,
-              ease: "power2.out",
-              scrollTrigger: {
-                trigger: ".description-text",
-                start: "top bottom",
-                end: "bottom top",
-                scrub: true,
-              },
-            }
-          );
-        },
-      }
-    );
+    gsap.fromTo(".main-intro-text", fromTitle, toTitle);
   }, []);
 
   return (
     <div>
       <Header />
-      <main className="bg-white p-32 w-screen h-screen flex items-center">
-        <section className="flex gap-6 items-center ">
+      <main className="bg-white px-32 w-screen  flex flex-col items-center">
+        <section className="flex gap-6 items-center h-screen">
           <div className="w-1/2 flex flex-col gap-12">
-            <h1 className="text-7xl font-bold  text-zinc-800 welcome-text">
+            <h1 className="text-7xl font-bold  text-zinc-800 main-intro-text">
               Build
               <span className="relative">
                 <span className="block"> Solutions</span>
@@ -71,17 +33,20 @@ export default function Home() {
               </span>
               , Scale, and Empower
             </h1>
-            <p className="mt-4 text-zinc-800 description-text">
+            <p className="mt-4 text-zinc-800 description-text w-3/4">
               Hi, I’m Pipat Horakungthong! With over 2 years of experience in
               web development and scalable software solutions and 3 years with
               game developer with unity engine and web game development, I’m
               ready to transform your ideas into reality.
             </p>
             <div className="flex gap-2">
-              <button className="py-4 px-8 border-2 border-blue-900 rounded-full bg-gradient-to-br from-pink-600 to-sky-900 text-2xl font-semibold tracking-normal">
+              <button className="py-4 px-8 shadow-2xl rounded-full bg-gradient-to-br from-pink-600 to-sky-900 text-2xl font-semibold tracking-normal">
                 Contact me
               </button>
-              <button className="py-4 px-8 border-2 border-blue-900 rounded-full bg-gradient-to-br from-pink-600 to-blue-900 text-2xl font-semibold tracking-normal">
+              <button
+                className="py-4 px-8 border-2 border-cyan-500 shadow-2xl rounded-full bg-gradient-to-br from-blue-700 to-pink-600 bg-clip-text text-transparent text-2xl font-semibold tracking-normal"
+                style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}
+              >
                 Work portfolio
               </button>
             </div>
@@ -89,14 +54,18 @@ export default function Home() {
           <div className="w-2/4 ">
             <Image
               src={imageProfile}
-              className="rounded-full w-[600px] h-[600px] object-cover m-auto"
+              className="rounded-full w-[600px] h-[600px] object-cover m-auto shadow-[0_8px_16px_rgba(0,0,0,0.2)]"
               alt="imageProfile"
               width={600}
               height={600}
+              style={{
+                backdropFilter: "blur(1px)",
+                WebkitBackdropFilter: "blur(1px)",
+              }}
             />
           </div>
         </section>
-        {/* <section className="projects">
+        <section className="projects">
           <h2>My projects</h2>
           <div className="project-grid">
             <ProjectCard
@@ -113,7 +82,7 @@ export default function Home() {
             />
           </div>
         </section>
-        <section className="skills">
+        {/* <section className="skills">
           <h2>My skills</h2>
           <div className="skill-list">
             <SkillItem name="JavaScript" level="Advanced" icon="js" />
