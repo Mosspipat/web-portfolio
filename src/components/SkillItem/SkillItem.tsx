@@ -35,7 +35,7 @@ export const SkillItem = ({
   }, []);
 
   return (
-    <div className="skill-item">
+    <div className="skill-item bg-slate-500">
       <div className={`skill-icon skill-icon--${icon}`} />
       <div className="skill-info">
         <h3 className="text-xl font-bold">{name}</h3>

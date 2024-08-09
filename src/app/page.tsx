@@ -65,7 +65,7 @@ export default function Home() {
             />
           </div>
         </section>
-        <section className="projects">
+        {/* <section className="projects">
           <h2>My projects</h2>
           <div className="project-grid">
             <ProjectCard
@@ -81,15 +81,22 @@ export default function Home() {
               link="/projects/project2"
             />
           </div>
-        </section>
-        {/* <section className="skills">
-          <h2>My skills</h2>
-          <div className="skill-list">
-            <SkillItem name="JavaScript" level="Advanced" icon="js" />
-            <SkillItem name="React" level="Intermediate" icon="react" />
-            <SkillItem name="Next.js" level="Beginner" icon="nextjs" />
-          </div>
         </section> */}
+        <section className="skills flex flex-col items-center gap-6">
+          <h2 className="text-6xl text-black font-bold tracking-wide bg-slate-800">
+            Programming language skills
+          </h2>
+          <div className="skill-list flex flex-wrap gap-10">
+            <SkillItem name="JavaScript" level="Advanced" icon="js" />
+            <SkillItem name="React Native" level="Beginner" icon="react" />
+            <SkillItem name="Vue.js" level="Intermediate" icon="vue" />
+            <SkillItem name="Next.js" level="Beginner" icon="nextjs" />
+            <SkillItem name="HTML" level="Advanced" icon="html" />
+            <SkillItem name="CSS" level="Advanced" icon="css" />
+            <SkillItem name="TypeScript" level="Intermediate" icon="ts" />
+            <SkillItem name="C#" level="Intermediate" icon="csharp" />
+          </div>
+        </section>
       </main>
       <Footer />
     </div>
