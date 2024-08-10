@@ -1,5 +1,5 @@
 "use client";
-import { Header, ProjectCard, SkillItem } from "@/components";
+import { Divider, Header, ProjectCard, SkillItem } from "@/components";
 import { Footer } from "@/components/Footer/Footer";
 
 import React from "react";
@@ -19,9 +19,11 @@ import {
   otherToolsSkill,
   toolsSkill,
 } from "@/constants";
+// import { Divider } from "@/components";
 
 export default function Home() {
   const imageProfile = "/portfolio/imageProfile-1.jpeg";
+  const testImg = "/portfolio/dog-golden.jpg";
 
   useEffect(() => {
     gsap.fromTo(".main-intro-text", fromTitle, toTitle);
@@ -30,8 +32,8 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <main className="bg-white px-32 w-screen  flex flex-col items-center">
-        <section className="flex gap-6 items-center h-screen">
+      <main className="bg-white  w-screen  flex flex-col items-center ">
+        <section className="flex gap-6 items-center h-screen px-32 	">
           <div className="w-1/2 flex flex-col gap-12">
             <h1 className="text-7xl font-bold  text-zinc-800 main-intro-text">
               Build
@@ -77,24 +79,24 @@ export default function Home() {
             />
           </div>
         </section>
-        {/* <section className="projects">
-          <h2>My projects</h2>
+        <section className="projects bg-gradient-to-b from-[#2a2a2a] via-[#202020] to-[#2a2a2a] w-full h-screen">
+          <Divider label="Projects" />
           <div className="project-grid">
             <ProjectCard
               title="Project 1"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-              image="/images/project1.jpg"
+              image={testImg}
               link="/projects/project1"
             />
             <ProjectCard
               title="Project 2"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-              image="/images/project2.jpg"
+              image={testImg}
               link="/projects/project2"
             />
           </div>
-        </section> */}
-        <section className="skills flex flex-col items-center gap-6  my-10 ">
+        </section>
+        <section className="skills flex flex-col items-center gap-6 my-10 px-32">
           <h2 className="text-6xl text-black font-bold tracking-wide ">
             Programming language skills
           </h2>
