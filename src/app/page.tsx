@@ -13,7 +13,12 @@ import { FaHtml5, FaVuejs } from "react-icons/fa6";
 import { SiTypescript } from "react-icons/si";
 import CSharpIcon from "@/components/Icons/CSharpIcon";
 import NextJSIcon from "@/components/Icons/NextJSIcon";
-import { languageProgrammingSkill } from "@/constants";
+import {
+  gameEngineToolsSkill,
+  languageProgrammingSkill,
+  otherToolsSkill,
+  toolsSkill,
+} from "@/constants";
 
 export default function Home() {
   const imageProfile = "/portfolio/imageProfile-1.jpeg";
@@ -89,7 +94,7 @@ export default function Home() {
             />
           </div>
         </section> */}
-        <section className="skills flex flex-col items-center gap-6  my-10">
+        <section className="skills flex flex-col items-center gap-6  my-10 ">
           <h2 className="text-6xl text-black font-bold tracking-wide ">
             Programming language skills
           </h2>
@@ -98,9 +103,32 @@ export default function Home() {
               return <SkillItem {...languageProgramSkill} key={index} />;
             })}
           </div>
+          <h2 className="text-6xl text-black font-bold tracking-wide ">
+            Framework website
+          </h2>
+          <div className="skill-list flex flex-wrap justify-center gap-10 ">
+            {toolsSkill.map((tool, index) => {
+              return <SkillItem {...tool} key={index} />;
+            })}
+          </div>
+          <h2 className="text-6xl text-black font-bold tracking-wide ">
+            Game Engine Tool
+          </h2>
+          <div className="skill-list flex flex-wrap justify-center gap-10 ">
+            {gameEngineToolsSkill.map((gameEngine, index) => {
+              return <SkillItem {...gameEngine} key={index} />;
+            })}
+          </div>
+          <h2 className="text-6xl text-black font-bold tracking-wide ">
+            Other Tools
+          </h2>
+          <div className="skill-list flex flex-wrap justify-center gap-10 ">
+            {otherToolsSkill.map((otherTool, index) => {
+              return <SkillItem {...otherTool} key={index} />;
+            })}
+          </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 }

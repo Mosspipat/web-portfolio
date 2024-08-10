@@ -6,3 +6,10 @@ export type SkillItemProps = {
   iconElement?: ReactNode;
   className?: string;
 };
+
+export type ToolItemProps = {
+  name: string;
+  level: string;
+  iconElement?: ReactNode;
+  className?: string;
+};
