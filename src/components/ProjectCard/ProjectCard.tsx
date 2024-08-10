@@ -1,6 +1,7 @@
 "use client";
 
 import { gsap } from "gsap";
+import Image from "next/image";
 import { useEffect } from "react";
 
 export type ProjectCardProps = {
@@ -41,7 +42,7 @@ export const ProjectCard = ({
   return (
     <a href={link} className="project-card">
       <div className="project-card-image">
-        <img src={image} alt={title} />
+        <Image src={image} alt={title} />
       </div>
       <div className="project-card-content">
         <h3>{title}</h3>
