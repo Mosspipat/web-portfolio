@@ -42,7 +42,7 @@ export const ProjectCard = ({
   return (
     <a href={link} className="project-card">
       <div className="project-card-image">
-        <Image src={image} alt={title} />
+        <Image src={image} alt={title} width={100} height={100} />
       </div>
       <div className="project-card-content">
         <h3>{title}</h3>
