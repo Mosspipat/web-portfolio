@@ -11,6 +11,8 @@ import { IoLogoCss3, IoLogoJavascript } from "react-icons/io5";
 import { TbBrandReactNative } from "react-icons/tb";
 import { FaHtml5, FaVuejs } from "react-icons/fa6";
 import { SiTypescript } from "react-icons/si";
+import CSharpIcon from "@/components/Icons/CSharpIcon";
+import NextJSIcon from "@/components/Icons/NextJSIcon";
 
 export default function Home() {
   const imageProfile = "/portfolio/imageProfile-1.jpeg";
@@ -86,43 +88,67 @@ export default function Home() {
             />
           </div>
         </section> */}
-        <section className="skills flex flex-col items-center gap-6">
-          <h2 className="text-6xl text-black font-bold tracking-wide bg-slate-800">
+        <section className="skills flex flex-col items-center gap-6  my-10">
+          <h2 className="text-6xl text-black font-bold tracking-wide ">
             Programming language skills
           </h2>
-          <div className="skill-list flex flex-wrap gap-10">
+          <div className="skill-list flex flex-wrap justify-center gap-10 ">
             <SkillItem
               name="JavaScript"
               level="Advanced"
-              iconElement={<IoLogoJavascript className="" size={100} />}
+              className={"border-2 w-[160px]"}
+              iconElement={
+                <IoLogoJavascript className="" size={100} color="#f0dc4e" />
+              }
             />
             <SkillItem
               name="React Native"
               level="Beginner"
-              iconElement={<TbBrandReactNative className="" size={100} />}
+              className="border-2 w-[160px]"
+              iconElement={
+                <TbBrandReactNative className="" size={100} color="#60dafb" />
+              }
             />
             <SkillItem
               name="Vue.js"
               level="Intermediate"
-              iconElement={<FaVuejs className="" size={100} />}
+              className="border-2 w-[160px]"
+              iconElement={<FaVuejs className="" size={100} color="#40b882" />}
             />
-            <SkillItem name="Next.js" level="Beginner" iconElement="nextjs" />
+            <SkillItem
+              name="Next.js"
+              level="Beginner"
+              className="border-2 w-[160px]"
+              iconElement={<NextJSIcon />}
+            />
             <SkillItem
               name="HTML"
               level="Advanced"
-              iconElement={<FaHtml5 className="" size={100} />}
+              className="border-2 w-[160px]"
+              iconElement={<FaHtml5 className="" size={100} color="#e44c27" />}
             />
             <SkillItem
               name="CSS"
               level="Advanced"
-              iconElement={<IoLogoCss3 className="" size={100} />}
+              className="border-2 w-[160px]"
+              iconElement={
+                <IoLogoCss3 className="" size={100} color="#1775bc" />
+              }
             />
             <SkillItem
               name="TypeScript"
               level="Intermediate"
-              iconElement={<SiTypescript className="" size={100} />}
+              className="border-2 w-[160px]"
+              iconElement={
+                <SiTypescript className="" size={100} color="#007bcd" />
+              }
             />
-            <SkillItem name="C#" level="Intermediate" iconElement="csharp" />
+            <SkillItem
+              name="C#"
+              level="Intermediate"
+              className="border-2 w-[160px]"
+              iconElement={<CSharpIcon />}
+            />
           </div>
         </section>
       </main>
