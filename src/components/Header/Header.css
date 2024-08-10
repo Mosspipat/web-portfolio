@@ -1,0 +1,41 @@
+.nav-link {
+  --nav-link-color: white;
+  --nav-link-bg-color: transparent;
+  --nav-link-border-radius: 0;
+  --nav-link-scale: 1;
+  --nav-link-y-translate: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  color: var(--nav-link-color);
+  text-decoration: none;
+  transition-property: color, background-color, border-radius, transform;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+
+  text-transform: capitalize;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  --nav-link-color: rgb(0, 170, 255);
+
+  transform: scale(1.1) translateY(-2px);
+  transition-duration: 300ms;
+  transition-timing-function: ease-out;
+}
+
+.nav-link:active {
+  --nav-link-color: rgb(184, 201, 255);
+  --nav-link-bg-color: white;
+}
+
+.nav-link:active,
+.nav-link:focus-visible {
+  --nav-link-border-radius: 9999px;
+  --nav-link-scale: 1.1;
+  --nav-link-y-translate: -1px;
+}

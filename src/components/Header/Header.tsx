@@ -2,39 +2,31 @@
 
 import { gsap } from "gsap";
 import { useEffect } from "react";
+import "./Header.css";
 
 export const Header = () => {
-  useEffect(() => {
-    gsap.fromTo(
-      ".header",
-      {
-        x: -200,
-        opacity: 0,
-      },
-      {
-        x: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power2.out",
-      }
-    );
-  }, []);
+  const navList = ["hero", "projects", "skills", "contact"];
+
+  type NavRender = {
+    href: string;
+    className: string;
+    indexKey: number;
+  };
+
+  const navRender = ({ href, className, indexKey }: NavRender) => (
+    <a href={`#${href}`} className={className} key={indexKey}>
+      {href}
+    </a>
+  );
 
   return (
     <header
-      className={`bg-gray-900 text-white p-6 flex justify-center items-center transition-transform`}
+      className={`fixed top-0 w-full z-10 p-6 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 shadow-xl`}
     >
-      <nav className="flex">
-        <a href="#hero" className="mr-4">
-          Home
-        </a>
-        <a href="#projects" className="mr-4">
-          Projects
-        </a>
-        <a href="#skills" className="mr-4">
-          Skills
-        </a>
-        <a href="#contact">Contact</a>
+      <nav className="flex justify-center items-center gap-6 text-white text-2xl font-bold">
+        {navList.map((nav, indexKey) =>
+          navRender({ href: nav, className: `nav-link`, indexKey })
+        )}
       </nav>
     </header>
   );
