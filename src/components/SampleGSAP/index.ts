@@ -1,1 +1,0 @@
-export { SampleGSAP } from "./SampleGSAP";

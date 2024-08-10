@@ -1,6 +1,5 @@
 "use client";
 
-import { gsap } from "gsap";
 import Image from "next/image";
 import { useEffect } from "react";
 
@@ -17,28 +16,6 @@ export const ProjectCard = ({
   image,
   link,
 }: ProjectCardProps) => {
-  useEffect(() => {
-    gsap.fromTo(
-      ".project-card",
-      {
-        x: -100,
-        opacity: 0,
-      },
-      {
-        x: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".project-card",
-          start: "top center+=100",
-          end: "bottom center",
-          scrub: true,
-        },
-      }
-    );
-  }, []);
-
   return (
     <a href={link} className="project-card">
       <div className="project-card-image">
