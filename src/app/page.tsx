@@ -7,12 +7,13 @@ import { gsap } from "gsap";
 import { useEffect } from "react";
 import Image from "next/image";
 import { fromTitle, toTitle } from "@/GSAPTween";
-import { IoLogoCss3, IoLogoJavascript } from "react-icons/io5";
+
 import { TbBrandReactNative } from "react-icons/tb";
 import { FaHtml5, FaVuejs } from "react-icons/fa6";
 import { SiTypescript } from "react-icons/si";
 import CSharpIcon from "@/components/Icons/CSharpIcon";
 import NextJSIcon from "@/components/Icons/NextJSIcon";
+import { languageProgrammingSkill } from "@/constants";
 
 export default function Home() {
   const imageProfile = "/portfolio/imageProfile-1.jpeg";
@@ -93,62 +94,9 @@ export default function Home() {
             Programming language skills
           </h2>
           <div className="skill-list flex flex-wrap justify-center gap-10 ">
-            <SkillItem
-              name="JavaScript"
-              level="Advanced"
-              className={"border-2 w-[160px]"}
-              iconElement={
-                <IoLogoJavascript className="" size={100} color="#f0dc4e" />
-              }
-            />
-            <SkillItem
-              name="React Native"
-              level="Beginner"
-              className="border-2 w-[160px]"
-              iconElement={
-                <TbBrandReactNative className="" size={100} color="#60dafb" />
-              }
-            />
-            <SkillItem
-              name="Vue.js"
-              level="Intermediate"
-              className="border-2 w-[160px]"
-              iconElement={<FaVuejs className="" size={100} color="#40b882" />}
-            />
-            <SkillItem
-              name="Next.js"
-              level="Beginner"
-              className="border-2 w-[160px]"
-              iconElement={<NextJSIcon />}
-            />
-            <SkillItem
-              name="HTML"
-              level="Advanced"
-              className="border-2 w-[160px]"
-              iconElement={<FaHtml5 className="" size={100} color="#e44c27" />}
-            />
-            <SkillItem
-              name="CSS"
-              level="Advanced"
-              className="border-2 w-[160px]"
-              iconElement={
-                <IoLogoCss3 className="" size={100} color="#1775bc" />
-              }
-            />
-            <SkillItem
-              name="TypeScript"
-              level="Intermediate"
-              className="border-2 w-[160px]"
-              iconElement={
-                <SiTypescript className="" size={100} color="#007bcd" />
-              }
-            />
-            <SkillItem
-              name="C#"
-              level="Intermediate"
-              className="border-2 w-[160px]"
-              iconElement={<CSharpIcon />}
-            />
+            {languageProgrammingSkill.map((languageProgramSkill, index) => {
+              return <SkillItem {...languageProgramSkill} key={index} />;
+            })}
           </div>
         </section>
       </main>

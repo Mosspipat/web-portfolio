@@ -3,13 +3,7 @@
 import { gsap } from "gsap";
 import { HTMLAttributes, ReactNode, useEffect } from "react";
 import classNames from "classnames";
-
-type SkillItemProps = {
-  name: string;
-  level: string;
-  iconElement?: ReactNode;
-  className?: string;
-};
+import { SkillItemProps } from "@/constants";
 
 export const SkillItem = ({
   name,
