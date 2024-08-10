@@ -8,7 +8,7 @@ import Image from "next/image";
 import { animate, inView, mix, scroll, stagger } from "framer-motion/dom";
 
 import { TbBrandReactNative } from "react-icons/tb";
-import { FaHtml5, FaVuejs } from "react-icons/fa6";
+import { FaAngleDown, FaChevronDown, FaHtml5, FaVuejs } from "react-icons/fa6";
 import { SiTypescript } from "react-icons/si";
 import CSharpIcon from "@/components/Icons/CSharpIcon";
 import NextJSIcon from "@/components/Icons/NextJSIcon";
@@ -30,13 +30,6 @@ export default function Home() {
 
   const skillSection = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    if (skillSection.current) {
-      // DOM has been rendered and the ref is set
-      console.log(skillSection.current);
-    }
-  }, []);
-
   const isInView = useInView(skillSection);
   console.log("🚀: ~ isInView:", isInView);
 
@@ -47,6 +40,7 @@ export default function Home() {
   const titleSectionHero = useRef(null);
   const descriptionSectionHero = useRef(null);
   const buttonSectionHero = useRef(null);
+  const arrowDownIconSectionHero = useRef(null);
 
   useEffect(() => {
     // Ensure elements exist before animating
@@ -97,7 +91,7 @@ export default function Home() {
       );
 
       // Animate buttonHero
-      animate(
+      const buttonAnimation = animate(
         buttonSectionHero.current,
         { opacity: [0, 1], x: [-300, 0] },
         {
@@ -107,6 +101,21 @@ export default function Home() {
           stiffness: 100,
           damping: 15,
         }
+      );
+
+      //animate arrowDownIconSectionHero
+      buttonAnimation.then(() =>
+        animate(
+          arrowDownIconSectionHero.current,
+          { opacity: [0, 1], x: [-300, 0] },
+          {
+            duration: 0.5,
+            ease: "easeOut",
+            type: "spring",
+            stiffness: 100,
+            damping: 15,
+          }
+        )
       );
     }
   }, []);
@@ -165,6 +174,15 @@ export default function Home() {
                 backdropFilter: "blur(1px)",
                 WebkitBackdropFilter: "blur(1px)",
               }}
+            />
+          </div>
+          <div
+            ref={arrowDownIconSectionHero}
+            className="animate-bounce absolute bottom-10 left-1/2 translate-x-1/2 opacity-0"
+          >
+            <FaChevronDown
+              className="text-4xl text-sky-400"
+              style={{ transform: "translateY(50%)" }}
             />
           </div>
         </section>
