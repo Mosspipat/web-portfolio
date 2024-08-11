@@ -1,25 +1,19 @@
 import { Header } from "@/components";
 
 import React, { FC, useRef } from "react";
+import "../app/globals.css"; // Adjust the path as needed
 
 import { HeroSection, ProjectsSection, SkillSection } from "@/sections";
-import dynamic from "next/dynamic";
 
 export default function Home() {
-  const ClientSideComponent = dynamic(
-    () => import("@/components/Header/Header").then((mod) => mod.Header),
-    {
-      ssr: false,
-    }
-  );
-
   return (
     <div>
-      <ClientSideComponent />
+      <Header />
       <main className="bg-white  w-screen  flex flex-col items-center">
-        {/* <HeroSection />
+        <h1 className="text-3xl font-bold text-black">sssss</h1>
+        <HeroSection />
         <ProjectsSection />
-        <SkillSection /> */}
+        <SkillSection />
       </main>
     </div>
   );
