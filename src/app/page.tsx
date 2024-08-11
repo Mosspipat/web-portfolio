@@ -20,65 +20,24 @@ import {
   toolsSkill,
 } from "@/constants";
 import { transform, useInView } from "framer-motion";
-import { HeroSection, SkillSection } from "@/sections";
-
-// import { Divider } from "@/components";
+import { HeroSection, ProjectsSection, SkillSection } from "@/sections";
 
 export default function Home() {
   const imageProfile = "/portfolio/imageProfile-1.jpeg";
-  const testImg = "/portfolio/dog-golden.jpg";
-  // scroll((progress) => console.log(progress));
 
   const skillSection = useRef<HTMLDivElement>(null);
-  // const skillProgramLanguage = useRef(null);
-  // const skillFramework = useRef(null);
-  // const skillGameEngine = useRef(null);
-  // const skillOther = useRef(null);
-
-  // const isInView = useInView(skillSection);
-  // const isInViewSkillProgramLanguage = useInView(skillProgramLanguage);
-  // const isInViewSkillFramework = useInView(skillFramework);
-  // const isInViewSkillGameEngine = useInView(skillGameEngine);
-  // const isInViewSkillOther = useInView(skillOther);
 
   const variants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
   };
 
-  // const isInViewStyles = isInView ? "visible" : "hidden";
-
-  // const animations = {
-  //   initial: "hidden",
-  //   animate: isInViewStyles,
-  //   exit: "hidden",
-  // };
-
-  // const mixer = mix({ a: "0px", b: 10 }, { a: "20px", b: 0 });
-  // console.log("🚀: ~ mixer:", mixer(0.5));
-
   return (
     <div>
       <Header />
       <main className="bg-white  w-screen  flex flex-col items-center">
         <HeroSection />
-        <section className="projects bg-gradient-to-b from-[#2a2a2a] via-[#202020] to-[#2a2a2a] w-full h-screen">
-          <Divider label="Projects" />
-          <div className="project-grid">
-            <ProjectCard
-              title="Project 1"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-              image={testImg}
-              link=""
-            />
-            <ProjectCard
-              title="Project 2"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-              image={testImg}
-              link=""
-            />
-          </div>
-        </section>
+        <ProjectsSection />
         <SkillSection />
       </main>
     </div>
