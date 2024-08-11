@@ -1,7 +1,6 @@
 "use client";
 
-import { gsap } from "gsap";
-import { useEffect } from "react";
+import { Link } from "react-scroll";
 import "./Header.css";
 
 export const Header = () => {
@@ -14,9 +13,15 @@ export const Header = () => {
   };
 
   const navRender = ({ href, className, indexKey }: NavRender) => (
-    <a href={`#${href}`} className={className} key={indexKey}>
+    <Link
+      to={href}
+      smooth={true}
+      duration={300}
+      className={className}
+      key={indexKey}
+    >
       {href}
-    </a>
+    </Link>
   );
 
   return (
