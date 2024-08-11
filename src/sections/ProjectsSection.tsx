@@ -21,7 +21,7 @@ export const ProjectsSection = () => {
 
   return (
     <section className="bg-gradient-to-b from-[#2a2a2a] via-[#202020] to-[#2a2a2a] w-full h-screen">
-      <div className="flex flex-col items-center justify-center gap-10 w-full h-screen bg-red-600">
+      <div className="flex flex-col items-center justify-center gap-10 w-full h-screen">
         <motion.div
           className=" font-bold"
           initial={{ opacity: 0 }}

@@ -1,7 +1,8 @@
 "use client";
 
+import { animate } from "framer-motion/dom";
 import Image from "next/image";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 
 export const HeroSection = () => {
@@ -13,12 +14,83 @@ export const HeroSection = () => {
 
   const imageProfile = "/portfolio/imageProfile-1.jpeg";
 
+  useEffect(() => {
+    // Animate profileImage
+    animate(
+      profileImageSectionHero.current,
+      {
+        opacity: [0, 1],
+        y: [-50, 0],
+        transform: ["scale(1)", "scale(1.1)"],
+      },
+      {
+        duration: 0.5,
+        ease: "easeInOut",
+        type: "spring",
+        bounce: 0.5,
+        velocity: 10,
+      }
+    );
+    // Animate mainTitleHero
+    const titleAnimation = animate(
+      titleSectionHero.current,
+      { opacity: [0, 1], y: [-50, 0] },
+      {
+        duration: 0.5,
+        ease: "backIn",
+        delay: 0,
+        type: "spring",
+        bounce: 0.5,
+        velocity: 10,
+      }
+    );
+
+    // Animate descriptionHero with a staggered delay after title animation finish
+    titleAnimation.then(() =>
+      animate(
+        descriptionSectionHero.current,
+        { opacity: [0, 1], x: [-300, 0] },
+        {
+          duration: 0.5,
+          ease: "easeOut",
+          type: "spring",
+          stiffness: 100,
+          damping: 15,
+        }
+      )
+    );
+
+    // Animate buttonHero
+    const buttonAnimation = animate(
+      buttonSectionHero.current,
+      { opacity: [0, 1], x: [-300, 0] },
+      {
+        duration: 0.5,
+        ease: "easeOut",
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+      }
+    );
+
+    //animate arrowDownIconSectionHero
+    buttonAnimation.then(() =>
+      animate(
+        arrowDownIconSectionHero.current,
+        { opacity: [0, 1], x: [-300, 0] },
+        {
+          duration: 0.5,
+          ease: "easeOut",
+          type: "spring",
+          stiffness: 100,
+          damping: 15,
+        }
+      )
+    );
+  }, []);
+
   return (
-    <section
-      id="hero"
-      className="flex gap-6 items-center h-screen px-32 bg-slate-700"
-    >
-      <h1 className="text-7xl font-bold text-red-600">test</h1>
+    <section id="hero" className="flex gap-6 items-center h-screen px-32">
       <div className="w-1/2 flex flex-col gap-12">
         <h1
           ref={titleSectionHero}
