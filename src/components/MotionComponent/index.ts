@@ -1,0 +1,1 @@
+export { MotionComponent } from "./MotionComponent";
