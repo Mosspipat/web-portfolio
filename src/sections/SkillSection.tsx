@@ -61,6 +61,7 @@ export const SkillSection = () => {
 
   return (
     <section
+      id="skills"
       ref={skillSection}
       className="flex flex-col items-center gap-6 my-10 px-32"
     >

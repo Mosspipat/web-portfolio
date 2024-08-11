@@ -15,8 +15,6 @@ export const HeroSection = () => {
   const imageProfile = "/portfolio/imageProfile-1.jpeg";
 
   useEffect(() => {
-    // Ensure elements exist before animating
-
     // Animate profileImage
     animate(
       profileImageSectionHero.current,
@@ -92,7 +90,7 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <section className="flex gap-6 items-center h-screen px-32">
+    <section id="hero" className="flex gap-6 items-center h-screen px-32">
       <div className="w-1/2 flex flex-col gap-12">
         <h1
           ref={titleSectionHero}
