@@ -4,6 +4,7 @@ import { animate } from "framer-motion/dom";
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import { FaChevronDown } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 export const HeroSection = () => {
   const profileImageSectionHero = useRef(null);
@@ -128,11 +129,25 @@ export const HeroSection = () => {
           </button>
         </div>
       </div>
-      <div className="w-2/4 ">
+      <motion.div
+        className="w-2/4 "
+        initial={{ opacity: 0 }}
+        whileInView={{
+          opacity: 1,
+          transform: ["scale(0)", "scale(1.1)"],
+          transition: {
+            duration: 0.5,
+            ease: "easeInOut",
+            type: "spring",
+            bounce: 0.5,
+            velocity: 10,
+          },
+        }}
+      >
         <Image
           ref={profileImageSectionHero}
           src={imageProfile}
-          className="rounded-full w-[600px] h-[600px] object-cover m-auto shadow-[0_8px_16px_rgba(0,0,0,0.2)] opacity-0"
+          className="rounded-full w-[600px] h-[600px] object-cover m-auto shadow-[0_8px_16px_rgba(0,0,0,0.2)]"
           alt="imageProfile"
           width={600}
           height={600}
@@ -141,7 +156,7 @@ export const HeroSection = () => {
             WebkitBackdropFilter: "blur(1px)",
           }}
         />
-      </div>
+      </motion.div>
       <div
         ref={arrowDownIconSectionHero}
         className="animate-bounce absolute bottom-10 left-1/2 translate-x-1/2 opacity-0"

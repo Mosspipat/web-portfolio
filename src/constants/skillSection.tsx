@@ -2,7 +2,6 @@ import CSharpIcon from "@/components/Icons/CSharpIcon";
 import NextJSIcon from "@/components/Icons/NextJSIcon";
 
 import { SkillItemProps, ToolItemProps } from "@/types";
-import { ReactNode } from "react";
 import { FaGitSquare, FaNode, FaUnity, FaWordpress } from "react-icons/fa";
 import { FaVuejs, FaHtml5 } from "react-icons/fa6";
 import { HiCommandLine } from "react-icons/hi2";
