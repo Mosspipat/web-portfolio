@@ -24,7 +24,7 @@ export const SkillSection = () => {
         })}
       </motion.div>
 
-      <motion.h2 className="text-6xl text-black font-bold tracking-wide">
+      <motion.h2 className="text-6xl text-black font-bold tracking-wide ">
         Framework website
       </motion.h2>
       <motion.div className="skill-list flex flex-wrap justify-center gap-10">
