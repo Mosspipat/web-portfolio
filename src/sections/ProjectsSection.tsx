@@ -2,7 +2,12 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { MotionComponent, SampleMotion } from "@/components";
+import {
+  HeaderScroll,
+  MotionComponent,
+  SampleMotion,
+  ThreeDCardDemo,
+} from "@/components";
 import { Items } from "@/components/MotionComponent/MotionComponent";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -23,68 +28,35 @@ export const ProjectsSection = () => {
   return (
     <section
       id="projects"
-      className="bg-gradient-to-b from-[#2a2a2a] via-[#202020] to-[#2a2a2a] w-full h-screen"
+      className="bg-gradient-to-b from-[#2a2a2a] via-[#202020] to-[#2a2a2a] w-full "
     >
-      <div className="flex flex-col items-center justify-center gap-10 w-full h-screen">
-        <SampleMotion />
+      <motion.div
+        className="w-full "
+        initial={{ scale: 0.9 }}
+        transition={{
+          duration: 1,
+          ease: "easeInOut",
+        }}
+      >
         <motion.div
-          className="flex flex-row items-center justify-center gap-4 mt-10"
-          initial={{ scale: 0.9 }}
-          transition={{
-            duration: 1,
-            ease: "easeInOut",
-          }}
-        >
-          <Image
-            src={testImg}
-            alt="idea"
-            className="w-48"
-            width={100}
-            height={100}
-          />
-          <motion.div
-            className="font-bold"
-            initial={{ opacity: 0 }}
-            transition={{ duration: 1 }}
-            whileInView={{ opacity: 1 }}
-          >
-            <motion.h2>
-              <motion.span
-                className="inline-block"
-                initial={{ x: "-100vw" }}
-                animate={{ x: 0 }}
-                transition={{ duration: 1 }}
-              >
-                Website
-              </motion.span>
-            </motion.h2>
-          </motion.div>
-        </motion.div>
-        <motion.div
-          className=" font-bold"
+          className="font-bold "
           initial={{ opacity: 0 }}
           transition={{ duration: 1 }}
-          whileInView={{ opacity: 1, scale: 3 }}
+          whileInView={{ opacity: 1 }}
         >
-          Game
+          <motion.h2>
+            <motion.span
+              className="text-[#07b0f3] text-8xl"
+              initial={{ x: "-100vw" }}
+              animate={{ x: 0 }}
+              transition={{ duration: 1 }}
+            >
+              Website
+            </motion.span>
+          </motion.h2>
+          <ThreeDCardDemo />
         </motion.div>
-        <motion.div
-          className=" font-bold"
-          initial={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-          whileInView={{ opacity: 1, scale: 3 }}
-        >
-          VR/AR
-        </motion.div>
-        <motion.div
-          className=" font-bold"
-          initial={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-          whileInView={{ opacity: 1, scale: 3 }}
-        >
-          Other
-        </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };

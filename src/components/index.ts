@@ -6,3 +6,9 @@ export * from "./Divider";
 export * from "./LottieAnimation";
 export * from "./MotionComponent";
 export * from "./SampleMotion";
+export * from "./3dCardEffect";
+export {
+  Card,
+  ContainerScroll,
+  Header as HeaderScroll,
+} from "./ContainerScroll";
