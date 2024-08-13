@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { memo, useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import {
   gameEngineToolsSkill,
@@ -9,7 +9,7 @@ import {
 } from "@/constants";
 import { SkillItem } from "@/components";
 
-export const SkillSection = () => {
+export const SkillSection = memo(function SkillSection() {
   return (
     <section
       id="skills"
@@ -52,4 +52,4 @@ export const SkillSection = () => {
       </motion.div>
     </section>
   );
-};
+});

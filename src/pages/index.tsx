@@ -10,18 +10,19 @@ import {
   ProjectsSection,
   SkillSection,
 } from "@/sections";
+import dynamic from "next/dynamic";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Header />
       <main className="bg-white  w-screen  flex flex-col items-center">
-        {/* <HeroSection /> */}
+        <HeroSection />
         <IntroduceSection />
-        {/* <ProjectsSection />
+        <ProjectsSection />
         <SkillSection />
-        <ContactSection /> */}
+        <ContactSection />
       </main>
-    </div>
+    </>
   );
 }

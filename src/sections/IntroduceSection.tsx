@@ -1,8 +1,13 @@
-import { Divider } from "@/components";
-import { dataProfile } from "@/data";
-import React from "react";
+import { Divider, LottieAnimation } from "@/components";
 
-export const IntroduceSection = () => {
+import animationMobile from "../../public/lotties/mobile-lottie.json";
+import animationWebsite from "../../public/lotties/website-lottie.json";
+
+import { dataProfile } from "@/data";
+import { motion } from "framer-motion";
+import { memo } from "react";
+
+export const IntroduceSection = memo(function IntroduceSection() {
   const ItemProfileDetail = ({
     title,
     des,
@@ -19,8 +24,30 @@ export const IntroduceSection = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center gap-9 text-black w-[800px] h-screen">
-      <p className="text-center text-6xl font-bold">To get to know me better</p>
+    <motion.div
+      className="flex flex-col items-center justify-center gap-9 text-black w-[800px] h-screen "
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{
+        duration: 0.5,
+        ease: "easeInOut",
+      }}
+    >
+      <div className="relative">
+        <LottieAnimation
+          className="absolute inset-0"
+          animationData={animationMobile}
+        />
+      </div>
+      <div className="relative">
+        <LottieAnimation
+          className="absolute "
+          animationData={animationWebsite}
+        />
+      </div>
+      <p className="text-center text-6xl font-bold ">
+        To get to know me better
+      </p>
       <p>
         I'm
         <span className="text-blue-600 ml-1 text-4xl font-semibold tracking-wide">
@@ -70,8 +97,8 @@ export const IntroduceSection = () => {
           })}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
-};
+});
 
 export default IntroduceSection;

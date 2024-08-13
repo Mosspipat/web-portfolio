@@ -2,11 +2,11 @@
 
 import { animate } from "framer-motion/dom";
 import Image from "next/image";
-import React, { useEffect, useRef } from "react";
+import React, { memo, useEffect, useRef } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { motion } from "framer-motion";
 
-export const HeroSection = () => {
+export const HeroSection = memo(function HeroSection() {
   const profileImageSectionHero = useRef(null);
   const titleSectionHero = useRef(null);
   const descriptionSectionHero = useRef(null);
@@ -174,4 +174,4 @@ export const HeroSection = () => {
       </div>
     </section>
   );
-};
+});

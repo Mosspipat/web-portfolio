@@ -1,6 +1,5 @@
 "use client";
 
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import {
   HeaderScroll,
@@ -9,11 +8,11 @@ import {
   ThreeDCardDemo,
 } from "@/components";
 import { Items } from "@/components/MotionComponent/MotionComponent";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-export const ProjectsSection = () => {
+export const ProjectsSection = memo(function ProjectsSection() {
   const [selectedId, setSelectedId] = useState("");
   const testImg = "/portfolio/dog-golden.jpg";
 
@@ -59,4 +58,4 @@ export const ProjectsSection = () => {
       </motion.div>
     </section>
   );
-};
+});
