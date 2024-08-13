@@ -108,15 +108,21 @@ export const HeroSection = () => {
           </span>
           , Scale, and Empower
         </h1>
-        <p
+        <div
           ref={descriptionSectionHero}
-          className="mt-4 text-zinc-800 description-text w-3/4 opacity-0"
+          className="mt-4 text-zinc-800 description-text w-3/4 opacity-0 font-semibold"
         >
-          Hi, I’m Pipat Horakungthong! With over 2 years of experience in web
-          development and scalable software solutions and 3 years with game
-          developer with unity engine and web game development, I’m ready to
-          transform your ideas into reality.
-        </p>
+          Hello, my name is
+          <br />
+          <div className="my-2">
+            <span className="font-bold text-3xl">Pipat Horakungthong</span>
+            <br />
+            <span className="text-blue-400 text-xl font-bold tracking-normal">
+              Frontend Developer
+            </span>
+            <br />
+          </div>
+        </div>
         <div className="flex gap-2 opacity-0" ref={buttonSectionHero}>
           <button className="py-4 px-8 shadow-2xl rounded-full bg-gradient-to-br from-pink-600 to-sky-900 text-2xl font-semibold tracking-normal">
             Contact me
