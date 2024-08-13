@@ -1,0 +1,1 @@
+export { dataProfile } from "./IntroSection";
