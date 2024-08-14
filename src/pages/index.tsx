@@ -1,6 +1,5 @@
-import { Header, HeaderScroll, ThreeDCardDemo } from "@/components";
+import { Header } from "@/components";
 
-import React, { FC, useRef } from "react";
 import "../app/globals.css"; // Adjust the path as needed
 
 import {
@@ -9,16 +8,17 @@ import {
   IntroduceSection,
   ProjectsSection,
   SkillSection,
+  TimelineSection,
 } from "@/sections";
-import dynamic from "next/dynamic";
 
 export default function Home() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <main className="bg-white  w-screen  flex flex-col items-center">
-        <HeroSection />
-        <IntroduceSection />
+        {/* <HeroSection /> */}
+        {/* <IntroduceSection /> */}
+        <TimelineSection />
         <ProjectsSection />
         <SkillSection />
         <ContactSection />
