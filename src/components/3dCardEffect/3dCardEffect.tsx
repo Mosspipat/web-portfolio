@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 import { CardBody, CardContainer, CardItem } from "../3dCard";
 import Link from "next/link";
+import { useScroll, useTransform } from "framer-motion";
 
 export type ThreeDCardDemoProps = {
   title?: string;

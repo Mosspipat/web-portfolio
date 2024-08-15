@@ -31,12 +31,6 @@ export const IntroduceSection = memo(function IntroduceSection() {
         className="flex flex-col items-center justify-center my-auto gap-9 text-black "
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        onViewportEnter={() => {
-          console.log("enterViewPort");
-        }}
-        onViewportLeave={() => {
-          console.log("leaveViewPort");
-        }}
         transition={{
           duration: 1,
           ease: "easeInOut",
