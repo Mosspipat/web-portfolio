@@ -17,11 +17,11 @@ export default function Home() {
     <>
       <Header />
       <main className="bg-white  w-screen  flex flex-col items-center">
-        <HeroSection />
+        {/* <HeroSection />
         <IntroduceSection />
         <TimelineSection />
         <ProjectsSection />
-        <SkillSection />
+        <SkillSection /> */}
         <ContactSection />
         <Footer />
       </main>

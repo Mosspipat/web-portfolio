@@ -109,6 +109,22 @@ export const MiniSection = ({
       >
         {DescriptionAddOn}
         <motion.p className="text-lg font-bold">{description}</motion.p>
+        <div className="flex flex-col gap-4">
+          <span className="border-b-2 border-blue-400 text-2xl w-fit pb-1">
+            showcase projects
+          </span>
+          <div className="flex gap-4">
+            <button className="text-lg font-bold bg-black rounded-3xl px-4 py-2 w-auto">
+              Link 1
+            </button>
+            <button className="text-lg font-bold bg-black rounded-3xl px-4 py-2 w-auto">
+              Link 2
+            </button>
+            <button className="text-lg font-bold bg-black rounded-3xl px-4 py-2 w-auto">
+              Link 3
+            </button>
+          </div>
+        </div>
       </motion.div>
     </motion.div>
   );

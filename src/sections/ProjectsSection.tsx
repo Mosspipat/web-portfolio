@@ -1,28 +1,13 @@
 "use client";
 
 import "swiper/css";
-import {
-  HeaderScroll,
-  MiniSection,
-  MotionComponent,
-  SampleMotion,
-  ThreeDCardDemo,
-  ThreeDCardDemoProps,
-} from "@/components";
+import { MiniSection } from "@/components";
 import { Items } from "@/components/MotionComponent/MotionComponent";
 import { memo, useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { experienceData, ExperienceItem } from "@/data/Sections/projectSection";
 
 export const ProjectsSection = memo(function ProjectsSection() {
-  const items: Items[] = [
-    { id: 1, subtitle: "Subtitle 1", title: "Title 1" },
-    { id: 2, subtitle: "Subtitle 2", title: "Title 2" },
-    { id: 3, subtitle: "Subtitle 3", title: "Title 3" },
-    { id: 4, subtitle: "Subtitle 4", title: "Title 4" },
-    { id: 5, subtitle: "Subtitle 5", title: "Title 5" },
-  ];
-
   return (
     <section
       id="projects"

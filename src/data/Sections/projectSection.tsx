@@ -13,10 +13,22 @@ import gameFilter2 from "/public/portfolio/filter/game-2.png";
 
 import motion from "framer-motion";
 
+type WorkList = {
+  label: string;
+  link: string;
+};
+
+const worklist: WorkList[] = [
+  {
+    label: "websiteMovieMania",
+    link: "www.google.com",
+  },
+];
+
 type optionCard = {
   xPosInView: string;
   ref: LegacyRef<HTMLHeadingElement>;
-  DescriptionAddOn?: React.ReactElement | null | undefined;
+  DescriptionAddOn?: React.ReactElement | undefined;
 };
 
 export type ExperienceItem = ThreeDCardDemoProps & optionCard;
@@ -102,22 +114,6 @@ export const experienceData: ExperienceItem[] = [
       </div>
     ),
   },
-  // {
-  //   title: "3D Virtual Tour",
-  //   description:
-  //     "create Programming 3D Virtual Tour used for creating a tour guide itself. 360 degree supports both streaming and 360.",
-  //   image: "/portfolio/dog-golden.jpg",
-  //   link: "www.google.com",
-  //   xPosInView: "0",
-  //   ref: null,
-  //   DescriptionAddOn: (
-  //     <div className="relative w-[1000px] h-[auto]">
-  //       <h1 className="absolute text-3xl bg-orange-500 w-full h-screen">
-  //         3D Virtual Tour - Description
-  //       </h1>
-  //     </div>
-  //   ),
-  // },
   {
     title: "AR (Augmented Reality) \n /VR (Virtual Reality) \n on website",
     description:
