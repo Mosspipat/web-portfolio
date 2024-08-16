@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  renderLIProps,
-  timelineData,
-  timelineVerticalData,
-} from "@/data/Sections";
+import { renderLIProps, timelineVerticalData } from "@/data/Sections";
 import { memo } from "react";
 import { motion } from "framer-motion";
 

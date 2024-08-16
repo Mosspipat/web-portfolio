@@ -1,5 +1,5 @@
 import { useScroll, useTransform, motion } from "framer-motion";
-import Image from "next/image";
+
 import { useRef } from "react";
 
 export const MiniSection = ({
@@ -7,11 +7,13 @@ export const MiniSection = ({
   description = "",
   link = "",
   isReverse = false,
+  DescriptionAddOn = <></>,
 }: {
   title?: string;
   description?: string;
   link?: string;
   isReverse?: boolean;
+  DescriptionAddOn?: React.ReactElement;
 }) => {
   const refContainer = useRef(null);
   const refTitle = useRef(null);
@@ -86,33 +88,26 @@ export const MiniSection = ({
     >
       <motion.h3
         ref={refTitle}
-        className="absolute inset-0 text-center my-auto text-5xl font-semibold p-4 z-30" // Adjusted z-index
+        className="absolute inset-0 text-center my-auto text-8xl font-semibold p-4 z-30 whitespace-pre-line" // Adjusted z-index
         style={{
           x: posXTitle,
           y: posYTitle,
           opacity: opacityTitle,
-          textShadow: `#1717ff 1px 0 10px`,
         }}
+        whileInView={{ textShadow: `1px 1px 20px #1717ff` }}
       >
         {title}
       </motion.h3>
 
       <motion.div
         ref={refDescription}
-        className="flex flex-col justify-center gap-4 w-1/2 mx-auto"
+        className="flex flex-col justify-center gap-4 w-1/2 min-h-screen mx-auto "
         style={{
           x: posXDescription,
           opacity: opacityDescription,
         }}
       >
-        <div className="relative w-full h-full z-10">
-          <iframe
-            src="https://ar-car-3d.netlify.app/"
-            className="h-screen w-full border-none"
-            title="3D Car Viewer"
-          />
-        </div>
-
+        {DescriptionAddOn}
         <motion.p className="text-lg font-bold">{description}</motion.p>
       </motion.div>
     </motion.div>

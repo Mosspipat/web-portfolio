@@ -2,7 +2,7 @@ import { memo } from "react";
 import { Link } from "react-scroll"; // or 'react-router-dom' based on your setup
 
 export const Header = memo(function Header() {
-  const navList = ["hero", "projects", "skills", "contact"];
+  const navList = ["hero", "timeline", "projects", "skills", "contact"];
 
   return (
     <header className="fixed top-0 w-full z-10 p-6 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 shadow-xl">
