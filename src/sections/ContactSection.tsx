@@ -2,75 +2,68 @@
 import React, { memo } from "react";
 import { motion } from "framer-motion";
 import { FaPhoneFlip } from "react-icons/fa6";
+import { ContactInfo, contactInfoList } from "@/data/Sections";
 
 export const ContactSection = memo(function ContactSection() {
-  const contactInfo = [
-    {
-      label: "Email",
-      icon: <FaPhoneFlip />,
-    },
-    {
-      label: "Phone",
-      icon: <FaPhoneFlip />,
-    },
-  ];
-
-  const RenderIcon = ({
-    label,
-    value,
-    icon,
-  }: {
-    label: string;
-    value: string;
-    icon: React.ReactElement;
-  }) => {
+  const RenderIcon = ({ value, icon, onClick, title, label }: ContactInfo) => {
+    console.log(onClick);
     return (
-      <>
-        <div className="rounded-full bg-gradient-to-br from-blue-500 via-blue-300 to-red-500 shadow-lg shadow-red-500 p-2">
-          <FaPhoneFlip
-            className="bg-white rounded-full h-16 w-16 p-2"
-            size={40}
-            color="#1b6ccf"
-          />
+      <motion.div
+        className="flex items-center p-1 hover:cursor-pointer my-auto"
+        whileHover={{ scale: 1.2 }}
+        transition={{
+          duration: 0.3,
+          ease: [0, 0.71, 0.2, 1.01],
+          type: "spring",
+          stiffness: 100,
+          damping: 15,
+        }}
+        onClick={() => (onClick ? onClick() : () => {})}
+      >
+        <div className="flex items-center justify-center w-18 h-18 rounded-full  p-2 z-20 bg-white ">
           {icon}
         </div>
-        <p className="text-blue-600 font-bold text-xl tracking-normal">
-          {label}
-        </p>
-      </>
+        <div className=" -translate-x-6 text-red-700 text-xl font-bold bg-white text-center rounded-full w-auto px-10 ">
+          {title} : {label}
+        </div>
+      </motion.div>
     );
   };
 
   return (
-    <motion.div className="w-full h-screen bg-black" id="contact">
+    <motion.div
+      id="contact"
+      className=" flex flex-col items-center justify-center w-full h-screen bg-black gap-20"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+    >
       <h2 className="text-6xl font-bold text-center mt-24">Contact</h2>
-      <p className="text-center text-3xl w-1/2 mx-auto mt-6">
+      <motion.p
+        className="text-center text-3xl w-1/2 mx-auto mt-6 p-4 shadow-xl shadow-blue-500"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1, animation: "easeInOut" }}
+      >
         Ready to learn, grow, and contribute—let’s work together to achieve
         great results. I’m excited to bring my enthusiasm and skills to your
         team and learn from the best
+      </motion.p>
+      <p className="text-center text-lg">
+        You can also find me on the following channels.
       </p>
-      <div className=" flex flex-wrap justify-center gap-2 ">
-        <div className=" flex flex-col items-center ">
-          <div className="relative rounded-full w-24 h-24  p-1">
-            <div className="relative">
-              <div className="absolute bg-red-500 rounded-full inset-0 h-16 w-16 p-4">
-                <FaPhoneFlip
-                  className="absolute bg-white rounded-full inset-0 h-16 w-16 p-2 z-20 border-2"
-                  size={40}
-                  color="#1b6ccf"
-                />
-              </div>
-              <div className="absolute top-5 -right-[180%] text-red-700  text-xl font-bold w-[200px] bg-white text-center rounded-full">
-                064-637-9555
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* <div>Mail</div>
-        <div>Instagram</div>
-        <div>Facebook</div>
-        <div>Github</div>
-        <div>Linkedin</div> */}
+      <div className="flex flex-wrap justify-center items-start gap-6 ">
+        {contactInfoList.map((contactInfo) => {
+          return (
+            <RenderIcon
+              value={contactInfo.value}
+              icon={contactInfo.icon}
+              title={contactInfo.title}
+              label={contactInfo.label}
+              onClick={contactInfo.onClick}
+              key={contactInfo.title}
+            />
+          );
+        })}
       </div>
     </motion.div>
   );

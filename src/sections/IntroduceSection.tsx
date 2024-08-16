@@ -26,7 +26,7 @@ export const IntroduceSection = memo(function IntroduceSection() {
   };
 
   return (
-    <div className="flex flex-col items-center w-[800px] h-screen">
+    <div id="aboutMe" className="flex flex-col items-center w-[800px] h-screen">
       <motion.div
         className="flex flex-col items-center justify-center my-auto gap-9 text-black "
         initial={{ opacity: 0 }}

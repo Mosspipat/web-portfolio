@@ -8,7 +8,7 @@ export const Footer = () => {
       id="footer"
     >
       <p className={`text-center text-sm`}>
-        &copy; 2023 Pipeek Thorakungthong. All rights reserved.
+        create by Pipat Horakungthong. Website portfolio.
       </p>
     </footer>
   );

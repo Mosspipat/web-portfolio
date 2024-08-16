@@ -10,6 +10,7 @@ import {
   SkillSection,
   TimelineSection,
 } from "@/sections";
+import { Footer } from "@/components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -17,11 +18,12 @@ export default function Home() {
       <Header />
       <main className="bg-white  w-screen  flex flex-col items-center">
         <HeroSection />
-        <IntroduceSection />
+        {/* <IntroduceSection />
         <TimelineSection />
-        <ProjectsSection />
+        <ProjectsSection /> */}
         <SkillSection />
         <ContactSection />
+        {/* <Footer/> */}
       </main>
     </>
   );

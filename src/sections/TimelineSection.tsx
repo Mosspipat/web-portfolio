@@ -13,7 +13,7 @@ import "react-vertical-timeline-component/style.min.css";
 
 export const TimelineSection = memo(function TimelineSection() {
   return (
-    <div className="my-4">
+    <div id="timeline" className="my-4">
       <h2 className="text-5xl bg-gradient-to-br via-purple-500 from-blue-700 to-pink-400 bg-clip-text text-transparent font-bold text-center">
         Timeline
       </h2>

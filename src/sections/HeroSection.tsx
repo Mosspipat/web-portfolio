@@ -92,10 +92,13 @@ export const HeroSection = memo(function HeroSection() {
 
   return (
     <section id="hero" className="flex gap-6 items-center h-screen px-32">
-      <div className="w-1/2 flex flex-col gap-12">
-        <h1
+      <div className="w-[800px] flex flex-col gap-12">
+        <motion.h1
           ref={titleSectionHero}
-          className="text-7xl font-bold  text-zinc-800 main-intro-text opacity-0"
+          className="text-6xl font-bold  text-zinc-800 main-intro-text opacity-0"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
         >
           Build
           <span className="relative">
@@ -107,32 +110,37 @@ export const HeroSection = memo(function HeroSection() {
             </span>
           </span>
           , Scale, and Empower
-        </h1>
+        </motion.h1>
         <div
           ref={descriptionSectionHero}
           className="mt-4 text-zinc-800 description-text w-3/4 opacity-0 font-semibold"
         >
-          Hello, my name is
-          <br />
-          <div className="my-2">
-            <span className="font-bold text-3xl">Pipat Horakungthong</span>
-            <br />
+          <div className="flex flex-col my-2 gap-2">
+            <span className="font-bold w-full text-4xl ">
+              My name is Pipat Horakungthong
+            </span>
+            <span>Hi And Hello I'm developer and Software Engineer!</span>
+
             <span className="text-blue-400 text-xl font-bold tracking-normal">
-              Frontend Developer
+              based in Thailand, Bangkok.
             </span>
             <br />
           </div>
         </div>
-        <div className="flex gap-2 opacity-0" ref={buttonSectionHero}>
-          <button className="py-4 px-8 shadow-2xl rounded-full bg-gradient-to-br from-pink-600 to-sky-900 text-2xl font-semibold tracking-normal">
+        <div className="flex gap-4 opacity-0" ref={buttonSectionHero}>
+          <motion.button
+            className="py-4 px-8 shadow-2xl rounded-full bg-gradient-to-br from-pink-600 to-sky-900 text-2xl font-semibold tracking-normal"
+            whileHover={{ scale: 1.1 }}
+          >
             Contact me
-          </button>
-          <button
+          </motion.button>
+          <motion.button
             className="py-4 px-8 border-2 border-cyan-500 shadow-2xl rounded-full bg-gradient-to-br from-blue-700 to-pink-600 bg-clip-text text-transparent text-2xl font-semibold tracking-normal"
+            whileHover={{ scale: 1.1 }}
             style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}
           >
             Work portfolio
-          </button>
+          </motion.button>
         </div>
       </div>
       <motion.div
