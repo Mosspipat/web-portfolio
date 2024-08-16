@@ -5,6 +5,7 @@ import Image from "next/image";
 import React, { memo, useEffect, useRef } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import { scroller } from "react-scroll";
 
 export const HeroSection = memo(function HeroSection() {
   const profileImageSectionHero = useRef(null);
@@ -90,6 +91,14 @@ export const HeroSection = memo(function HeroSection() {
     );
   }, []);
 
+  const scrollTo = (id: string) => {
+    scroller.scrollTo(id, {
+      smooth: true,
+      duration: 500,
+      offset: -50,
+    });
+  };
+
   return (
     <section id="hero" className="flex gap-6 items-center h-screen px-32">
       <div className="w-[800px] flex flex-col gap-12">
@@ -131,6 +140,7 @@ export const HeroSection = memo(function HeroSection() {
           <motion.button
             className="py-4 px-8 shadow-2xl rounded-full bg-gradient-to-br from-pink-600 to-sky-900 text-2xl font-semibold tracking-normal"
             whileHover={{ scale: 1.1 }}
+            onClick={() => scrollTo("contact")}
           >
             Contact me
           </motion.button>
@@ -138,6 +148,7 @@ export const HeroSection = memo(function HeroSection() {
             className="py-4 px-8 border-2 border-cyan-500 shadow-2xl rounded-full bg-gradient-to-br from-blue-700 to-pink-600 bg-clip-text text-transparent text-2xl font-semibold tracking-normal"
             whileHover={{ scale: 1.1 }}
             style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}
+            onClick={() => scrollTo("projects")}
           >
             Work portfolio
           </motion.button>

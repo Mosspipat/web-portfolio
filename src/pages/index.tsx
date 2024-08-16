@@ -18,12 +18,12 @@ export default function Home() {
       <Header />
       <main className="bg-white  w-screen  flex flex-col items-center">
         <HeroSection />
-        {/* <IntroduceSection />
+        <IntroduceSection />
         <TimelineSection />
-        <ProjectsSection /> */}
+        <ProjectsSection />
         <SkillSection />
         <ContactSection />
-        {/* <Footer/> */}
+        <Footer />
       </main>
     </>
   );

@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { Link } from "react-scroll"; // or 'react-router-dom' based on your setup
+import { Link  } from "react-scroll"; 
 
 export const Header = memo(function Header() {
   type NavList = { name: string; link: string };
