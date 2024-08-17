@@ -1,4 +1,4 @@
-// components/ImageSequence.js
+"use client";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
@@ -10,7 +10,7 @@ type ImageSequenceProps = {
   interval: number;
 };
 
-const ImageSequence: React.FC<ImageSequenceProps> = ({
+export const ImageSequence: React.FC<ImageSequenceProps> = ({
   frameCount,
   folderPath,
   filePrefix,
@@ -44,5 +44,3 @@ const ImageSequence: React.FC<ImageSequenceProps> = ({
     />
   );
 };
-
-export default ImageSequence;

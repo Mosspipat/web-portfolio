@@ -1,6 +1,6 @@
-"useclient";
+"use client";
 
-import { Divider, LottieAnimation } from "@/components";
+import { Divider, LottieAnimation, SampleTimeline } from "@/components";
 
 import animationMobile from "../../public/lotties/mobile-lottie.json";
 import animationWebsite from "../../public/lotties/website-lottie.json";

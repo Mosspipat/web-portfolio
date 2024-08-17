@@ -2,7 +2,7 @@
 import React, { memo } from "react";
 import { motion } from "framer-motion";
 import { FaPhoneFlip } from "react-icons/fa6";
-import { ContactInfo, contactInfoList } from "@/data/Sections";
+import { ContactInfo, contactInfoList } from "@/data/sections";
 
 export const ContactSection = memo(function ContactSection() {
   const RenderIcon = ({ value, icon, onClick, title, label }: ContactInfo) => {

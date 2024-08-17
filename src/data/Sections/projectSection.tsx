@@ -1,6 +1,4 @@
 import { ThreeDCardDemoProps } from "@/components";
-import ImageSequence from "@/components/ImageSequence/ImageSequence";
-import VideoPlayer from "@/components/VideoPlayer/VideoPlayer";
 import Image, { StaticImageData } from "next/image";
 import { LegacyRef } from "react";
 
@@ -13,15 +11,52 @@ import gameFilter2 from "/public/portfolio/filter/game-2.png";
 
 import motion from "framer-motion";
 
-type WorkList = {
+export type WorkList = {
   label: string;
   link: string;
 };
 
-const worklist: WorkList[] = [
+const projectWebsiteList: WorkList[] = [
   {
     label: "websiteMovieMania",
+    link: "https://movie-mania-plum.vercel.app/",
+  },
+  {
+    label: "webCarModel3D",
+    link: "https://63a9af09d922a824ecfb307f--ar-car-3d.netlify.app/",
+  },
+];
+
+const projectGameEngineList: WorkList[] = [
+  {
+    label: "GameExercise with Kinect 1",
+    link: "https://www.youtube.com/watch?v=P2qnbJKNw7U",
+  },
+  {
+    label: "GameExercise with Kinect 2",
+    link: "https://www.youtube.com/watch?v=VaTm6u0QgmI",
+  },
+  {
+    label: "Game Matcher",
+    link: "https://www.youtube.com/watch?v=4yWYzx1GEAs",
+  },
+];
+
+const projectSocialPlatformList: WorkList[] = [
+  {
+    label: "Quiz filter facebook platform ",
     link: "www.google.com",
+  },
+  {
+    label: "Game filter facebook platform",
+    link: "www.google.com",
+  },
+];
+
+const projectARPlatformList: WorkList[] = [
+  {
+    label: "FurnitureAR",
+    link: "https://63a9af4c441cc521a40cbfd4--ar-furniture-3d.netlify.app/",
   },
 ];
 
@@ -29,6 +64,7 @@ type optionCard = {
   xPosInView: string;
   ref: LegacyRef<HTMLHeadingElement>;
   DescriptionAddOn?: React.ReactElement | undefined;
+  showcaseProject?: WorkList[];
 };
 
 export type ExperienceItem = ThreeDCardDemoProps & optionCard;
@@ -56,6 +92,7 @@ export const experienceData: ExperienceItem[] = [
         title="3D Car Viewer"
       />
     ),
+    showcaseProject: projectWebsiteList,
   },
   {
     title: "Game Developer",
@@ -67,9 +104,6 @@ export const experienceData: ExperienceItem[] = [
     ref: null,
     DescriptionAddOn: (
       <div className="relative w-[1000px] h-[auto]">
-        {/* <h1 className="absolute text-3xl bg-orange-500 w-full h-screen">
-          Game Developer - Description
-        </h1> */}
         <div className="relative h-[500px]">
           <Image
             className="absolute top-52 -left-[10%] rounded-3xl shadow-2xl  w-96 border-4 border-black"
@@ -89,8 +123,8 @@ export const experienceData: ExperienceItem[] = [
         </div>
       </div>
     ),
+    showcaseProject: projectGameEngineList,
   },
-
   {
     title: "Social platform Developer",
     description:
@@ -113,6 +147,7 @@ export const experienceData: ExperienceItem[] = [
         />
       </div>
     ),
+    showcaseProject: projectSocialPlatformList,
   },
   {
     title: "AR (Augmented Reality) \n /VR (Virtual Reality) \n on website",
@@ -126,10 +161,11 @@ export const experienceData: ExperienceItem[] = [
       <div className="relative w-full h-[400px] -z-[100]">
         <iframe
           src="https://63a9af4c441cc521a40cbfd4--ar-furniture-3d.netlify.app/"
-          className=" absolute -top-[20] -left-[40] h-[400px] w-[600px] border-4 border-blue-500 rounded-3xl -"
-          title="3D Car Viewer"
+          className=" absolute -top-[20] -left-[40] h-[400px] w-[600px] border-4 border-blue-500 rounded-3xl pointer-events-none"
+          title="Furniture 3D"
         />
       </div>
     ),
+    showcaseProject: projectARPlatformList,
   },
 ];

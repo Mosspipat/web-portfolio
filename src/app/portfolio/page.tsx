@@ -1,6 +1,8 @@
-import { Header } from "@/components";
+"use client";
 
-import "../app/globals.css"; // Adjust the path as needed
+import { Header, SampleTimeline } from "@/components";
+
+import "../globals.css"; // Adjust the path as needed
 
 import {
   ContactSection,
@@ -12,16 +14,16 @@ import {
 } from "@/sections";
 import { Footer } from "@/components/Footer/Footer";
 
-export default function Home() {
+export default function Page() {
   return (
     <>
       <Header />
       <main className="bg-white  w-screen  flex flex-col items-center">
-        {/* <HeroSection />
+        <HeroSection />
         <IntroduceSection />
         <TimelineSection />
         <ProjectsSection />
-        <SkillSection /> */}
+        <SkillSection />
         <ContactSection />
         <Footer />
       </main>

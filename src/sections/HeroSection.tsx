@@ -6,6 +6,9 @@ import React, { memo, useEffect, useRef } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { scroller } from "react-scroll";
+import { timelineVerticalData } from "@/data/sections";
+import { VerticalTimelineElement } from "react-vertical-timeline-component";
+import { TimelineSection } from "./TimelineSection";
 
 export const HeroSection = memo(function HeroSection() {
   const profileImageSectionHero = useRef(null);
@@ -129,7 +132,6 @@ export const HeroSection = memo(function HeroSection() {
               My name is Pipat Horakungthong
             </span>
             <span>Hi And Hello I'm developer and Software Engineer!</span>
-
             <span className="text-blue-400 text-xl font-bold tracking-normal">
               based in Thailand, Bangkok.
             </span>

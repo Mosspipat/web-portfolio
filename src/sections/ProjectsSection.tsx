@@ -2,10 +2,10 @@
 
 import "swiper/css";
 import { MiniSection } from "@/components";
-import { Items } from "@/components/MotionComponent/MotionComponent";
-import { memo, useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { experienceData, ExperienceItem } from "@/data/Sections/projectSection";
+
+import { memo } from "react";
+import { motion } from "framer-motion";
+import { experienceData } from "@/data/sections/projectSection";
 
 export const ProjectsSection = memo(function ProjectsSection() {
   return (
@@ -38,7 +38,12 @@ export const ProjectsSection = memo(function ProjectsSection() {
         {experienceData.map((experience, index) => {
           const isReverse = index % 2 === 0;
           return (
-            <MiniSection {...experience} isReverse={isReverse} key={index} />
+            <MiniSection
+              {...experience}
+              showCaseList={experience.showcaseProject}
+              isReverse={isReverse}
+              key={index}
+            />
           );
         })}
       </motion.div>

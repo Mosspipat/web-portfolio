@@ -1,1 +1,1 @@
-export * from "./Sections/IntroSection";
+export * from "./sections";

@@ -1,3 +1,5 @@
+"use client";
+import { WorkList } from "@/data/sections";
 import { useScroll, useTransform, motion } from "framer-motion";
 
 import { useRef } from "react";
@@ -8,12 +10,14 @@ export const MiniSection = ({
   link = "",
   isReverse = false,
   DescriptionAddOn = <></>,
+  showCaseList,
 }: {
   title?: string;
   description?: string;
   link?: string;
   isReverse?: boolean;
   DescriptionAddOn?: React.ReactElement;
+  showCaseList?: WorkList[];
 }) => {
   const refContainer = useRef(null);
   const refTitle = useRef(null);
@@ -80,6 +84,21 @@ export const MiniSection = ({
     [0, 255]
   );
 
+  const RenderButton = ({ label, value }: { label: string; value: string }) => {
+    return (
+      <motion.button
+        className="text-lg font-bold bg-black border-blue-200 border-2 rounded-3xl px-4 py-2 w-auto"
+        whileHover={{ scale: 1.1 }}
+        transition={{ duration: 0.3, ease: [0, 0.71, 0.2, 1.01] }}
+        onClick={() => {
+          window.open(value, "_blank");
+        }}
+      >
+        {label}
+      </motion.button>
+    );
+  };
+
   return (
     <motion.div
       ref={refContainer}
@@ -88,7 +107,7 @@ export const MiniSection = ({
     >
       <motion.h3
         ref={refTitle}
-        className="absolute inset-0 text-center my-auto text-8xl font-semibold p-4 z-30 whitespace-pre-line" // Adjusted z-index
+        className="absolute inset-0 text-center my-auto text-8xl font-semibold p-4 z-30 pointer-events-none whitespace-pre-line" // Adjusted z-index
         style={{
           x: posXTitle,
           y: posYTitle,
@@ -110,19 +129,26 @@ export const MiniSection = ({
         {DescriptionAddOn}
         <motion.p className="text-lg font-bold">{description}</motion.p>
         <div className="flex flex-col gap-4">
+          {/* <button
+            onClick={() => {
+              console.log("click");
+            }}
+          >
+            sss
+          </button> */}
           <span className="border-b-2 border-blue-400 text-2xl w-fit pb-1">
             showcase projects
           </span>
           <div className="flex gap-4">
-            <button className="text-lg font-bold bg-black rounded-3xl px-4 py-2 w-auto">
-              Link 1
-            </button>
-            <button className="text-lg font-bold bg-black rounded-3xl px-4 py-2 w-auto">
-              Link 2
-            </button>
-            <button className="text-lg font-bold bg-black rounded-3xl px-4 py-2 w-auto">
-              Link 3
-            </button>
+            {showCaseList?.map((showcase) => {
+              return (
+                <RenderButton
+                  label={showcase.label}
+                  value={showcase.link}
+                  key={showcase.label}
+                />
+              );
+            })}
           </div>
         </div>
       </motion.div>
