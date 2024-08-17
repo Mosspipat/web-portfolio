@@ -6,9 +6,6 @@ import React, { memo, useEffect, useRef } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { scroller } from "react-scroll";
-import { timelineVerticalData } from "@/data/sections";
-import { VerticalTimelineElement } from "react-vertical-timeline-component";
-import { TimelineSection } from "./TimelineSection";
 
 export const HeroSection = memo(function HeroSection() {
   const profileImageSectionHero = useRef(null);
