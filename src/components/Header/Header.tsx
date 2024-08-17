@@ -7,20 +7,20 @@ import { Link } from "react-scroll";
 
 export const Header = memo(function Header() {
   const [openNav, setOpenNav] = useState(true);
-  console.log("🚀: ~ openNav:", openNav);
 
   const { width } = useWindowSize();
-  console.log("🚀: ~ width:", width);
 
   useEffect(() => {
     if (width && width < 768) {
       console.log("collapse items");
       setOpenNav(false);
+    } else {
+      setOpenNav(true);
     }
-  }, []);
+  }, [width]);
 
   return (
-    <div className="fixed top-0 w-screen z-10 p-6 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 shadow-xl rounded-none border-none">
+    <div className="fixed top-0 w-screen z-10 p-6 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 shadow-xl rounded-none border-none ">
       <nav className="flex flex-col items-start w-screen md:flex-row md:justify-center md:items-center gap-6  text-white sm:text-sm md:text-base  lg:text-2xl font-bold text-start md:text-center">
         <RxHamburgerMenu
           className="md:hidden"
