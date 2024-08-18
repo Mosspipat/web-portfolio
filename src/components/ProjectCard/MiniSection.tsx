@@ -1,8 +1,9 @@
 "use client";
 import { WorkList } from "@/data/sections";
+import { useScreenSize, useViewport } from "@/hooks";
 import { useScroll, useTransform, motion } from "framer-motion";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const MiniSection = ({
   title = "",
@@ -19,6 +20,22 @@ export const MiniSection = ({
   DescriptionAddOn?: React.ReactElement;
   showCaseList?: WorkList[];
 }) => {
+  const { width } = useScreenSize();
+
+  type ScreenSize = "MOBILE" | "TABLET" | "DESKTOP";
+
+  const [screenSize, setScreenSize] = useState<ScreenSize>("DESKTOP");
+
+  useEffect(() => {
+    if (width && width < 768) {
+      setScreenSize("MOBILE");
+    } else if (width && width < 1024) {
+      setScreenSize("TABLET");
+    } else {
+      setScreenSize("DESKTOP");
+    }
+  }, [width]);
+
   const refContainer = useRef(null);
   const refTitle = useRef(null);
   const refDescription = useRef(null);
@@ -42,10 +59,16 @@ export const MiniSection = ({
   const posXTitle = useTransform(
     scrollYTitleProgress,
     [0, 0.5, 1],
-    [0, 280, 380].map((element) => (isReverse ? element * -1 : element))
+    screenSize !== "MOBILE"
+      ? [0, 280, 380].map((element) => (isReverse ? element * -1 : element))
+      : [0, 0, 0]
   );
 
-  const posYTitle = useTransform(scrollYTitleProgress, [0, 0.3], [450, 450]);
+  const posYTitle = useTransform(
+    scrollYTitleProgress,
+    [0, 0.3],
+    screenSize !== "MOBILE" ? [450, 450] : [0, 0]
+  );
 
   const opacityTitle = useTransform(scrollYTitleProgress, [0, 0.5], [0, 1]);
 
@@ -54,22 +77,13 @@ export const MiniSection = ({
     offset: ["start end", "end start"], // Section fully enters, fully leaves
   });
 
-  const scaleDescription = useTransform(
-    scrollYDescriptionProgress,
-    [0, 0.2, 0.3, 0.5, 1],
-    [0.3, 3, 2, 1, 1]
-  );
-
   const posXDescription = useTransform(
     scrollYDescriptionProgress,
     [0, 0.5, 1],
-    [0, 280, 380].map((element) => (!isReverse ? element * -1 : element))
-  );
-
-  const posYDescription = useTransform(
-    scrollYDescriptionProgress,
-    [0, 0.3],
-    [450, 450]
+    // [0, 280, 380].map((element) => (!isReverse ? element * -1 : element))
+    screenSize !== "MOBILE"
+      ? [0, 280, 380].map((element) => (!isReverse ? element * -1 : element))
+      : [0, 0, 0]
   );
 
   const opacityDescription = useTransform(
@@ -78,16 +92,10 @@ export const MiniSection = ({
     [0.5, 1]
   );
 
-  const shadowDescription = useTransform(
-    scrollYDescriptionProgress,
-    [0, 1],
-    [0, 255]
-  );
-
   const RenderButton = ({ label, value }: { label: string; value: string }) => {
     return (
       <motion.button
-        className="text-lg font-bold bg-black border-blue-200 border-2 rounded-3xl px-4 py-2 w-auto"
+        className="text-xl xl:text-xl font-bold bg-black border-blue-200 border-2 rounded-3xl px-4 py-2 w-auto shadow-black shadow-xl"
         whileHover={{ scale: 1.1 }}
         transition={{ duration: 0.3, ease: [0, 0.71, 0.2, 1.01] }}
         onClick={() => {
@@ -102,12 +110,12 @@ export const MiniSection = ({
   return (
     <motion.div
       ref={refContainer}
-      className="relative flex flex-col items-center gap-6 bg-blue-600-700 w-full h-full"
+      className="relative flex flex-col items-center gap-6 bg-blue-600-700 w-full h-full "
       style={{ opacity: opacityContainer }}
     >
       <motion.h3
         ref={refTitle}
-        className="absolute inset-0 text-center my-auto text-8xl font-semibold p-4 z-30 pointer-events-none whitespace-pre-line" // Adjusted z-index
+        className="absolute xl:inset-0 text-center my-auto text-3xl xl:text-8xl font-semibold p-4 z-30 pointer-events-none whitespace-pre-line"
         style={{
           x: posXTitle,
           y: posYTitle,
@@ -120,26 +128,21 @@ export const MiniSection = ({
 
       <motion.div
         ref={refDescription}
-        className="flex flex-col justify-center gap-4 w-1/2 min-h-screen mx-auto "
+        className="flex flex-col justify-center gap-4 w-full xl:w-1/2 min-h-screen mx-auto px-2 xl:px-0"
         style={{
           x: posXDescription,
           opacity: opacityDescription,
         }}
       >
         {DescriptionAddOn}
-        <motion.p className="text-lg font-bold">{description}</motion.p>
-        <div className="flex flex-col gap-4">
-          {/* <button
-            onClick={() => {
-              console.log("click");
-            }}
-          >
-            sss
-          </button> */}
+        <motion.p className="text-base xl:text-lg font-bold">
+          {description}
+        </motion.p>
+        <div className="flex flex-col gap-4 items-center xl:items-start ">
           <span className="border-b-2 border-blue-400 text-2xl w-fit pb-1">
             showcase projects
           </span>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap justify-center xl:justify-start gap-4 mx-auto xl:mx-0 ">
             {showCaseList?.map((showcase) => {
               return (
                 <RenderButton

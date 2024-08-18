@@ -3,19 +3,23 @@
 import "swiper/css";
 import { MiniSection } from "@/components";
 
-import { memo } from "react";
+import { memo, useContext, useState } from "react";
 import { motion } from "framer-motion";
 import { experienceData } from "@/data/sections/projectSection";
+import { MyContext } from "@/context";
 
 export const ProjectsSection = memo(function ProjectsSection() {
+  const { heightHeader } = useContext(MyContext);
+
   return (
     <section
       id="projects"
       className="bg-gradient-to-b from-[#2a2a2a] via-[#202020] to-[#2a2a2a] w-full my-6"
+      style={{ paddingTop: `${heightHeader}px` }}
     >
-      <motion.div className="h-auto flex flex-col items-center justify-center gap-8 my-8">
+      <motion.div className="h-auto flex flex-col items-center justify-center gap-8 my-8 ">
         <motion.h2
-          className="text-[#07b0f3] text-8xl shadow-blue-500 font-bold"
+          className="text-[#07b0f3] text-6xl xl:text-8xl shadow-blue-500 font-bold"
           style={{
             textShadow: "0px 10px 20px blue",
           }}
@@ -26,7 +30,7 @@ export const ProjectsSection = memo(function ProjectsSection() {
         </motion.h2>
 
         <motion.p
-          className="text-3xl font-normal w-[1400px]"
+          className="text-xl xl:text-3xl font-normal xl:w-[1400px] text-center xl:text-start px-4 md:px-0 "
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, animation: "easeInOut" }}
