@@ -80,6 +80,7 @@ const gameEngineList: StaticImageData[] = [
   gameEngine2,
   gameEngine3,
 ];
+
 const gameFilterList: StaticImageData[] = [gameFilter1, gameFilter2];
 
 export const experienceData: ExperienceItem[] = [
@@ -142,12 +143,12 @@ export const experienceData: ExperienceItem[] = [
     DescriptionAddOn: (
       <div className="relative h-[500px]">
         <Image
-          className="absolute -top-20 left-[30%] -rotate-[5deg] rounded-3xl shadow-2xl -z-10 w-72  "
+          className="absolute top-20 xl:-top-20 left-[5%] md:left-[30%] -rotate-[5deg] rounded-3xl shadow-2xl -z-10 w-[200px] xl:w-72  "
           src={gameFilterList[0]}
           alt="game1"
         />
         <Image
-          className="absolute -top-20 left-[55%] rotate-[5deg] rounded-3xl shadow-2xl -z-20 w-72 "
+          className="absolute top-20 xl:-top-20 left-[48%] md:left-[55%] rotate-[5deg] rounded-3xl shadow-2xl -z-20 w-[200px] xl:w-72 "
           src={gameFilterList[1]}
           alt="game3"
         />
@@ -164,10 +165,10 @@ export const experienceData: ExperienceItem[] = [
     xPosInView: "0",
     ref: null,
     DescriptionAddOn: (
-      <div className="relative w-full h-[400px] -z-[100]">
+      <div className="relative w-full h-[400px] -z-[100] ">
         <iframe
           src="https://63a9af4c441cc521a40cbfd4--ar-furniture-3d.netlify.app/"
-          className=" absolute -top-[20] -left-[40] h-[400px] w-[600px] border-4 border-blue-500 rounded-3xl pointer-events-none"
+          className=" absolute -top-[20] left-[10px]  xl:-left-[40] h-[400px] w-[400px] xl:w-[600px] border-4 border-blue-500 rounded-3xl pointer-events-none"
           title="Furniture 3D"
         />
       </div>
