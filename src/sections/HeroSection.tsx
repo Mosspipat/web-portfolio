@@ -19,11 +19,26 @@ export const HeroSection = memo(function HeroSection() {
   const imageProfile = "/portfolio/imageProfile-1.jpeg";
 
   const { width } = useWindowSize();
-  console.log("🚀: ~ width:", width);
   const [sizeImage, setSizeImage] = useState<number>(0);
+  console.log("🚀: ~ sizeImage:", sizeImage);
 
   const { heightHeader } = useContext(MyContext);
   console.log("🚀: ~ heightHeader:", heightHeader);
+
+  const ImageProfileRef = useRef<HTMLImageElement | null>(null);
+
+  console.log(ImageProfileRef);
+
+  // useEffect(() => {
+  //   if (ImageProfileRef.current) {
+  //     const elementWidth = ImageProfileRef.current.offsetWidth;
+  //     console.log("🚀: ~ elementWidth:", elementWidth);
+  //     // Set the width and height of the element
+  //     setSizeImage(400);
+  //     ImageProfileRef.current.style.width = `${sizeImage}200px`;
+  //     ImageProfileRef.current.style.height = `${sizeImage}200px`;
+  //   }
+  // }, []);
 
   useEffect(() => {
     // Animate profileImage
@@ -80,27 +95,28 @@ export const HeroSection = memo(function HeroSection() {
 
   useEffect(() => {
     if (width && width <= 768) {
-      console.log("set");
       // setSizeImage(window.innerWidth * 0.4);
       setSizeImage(200);
-    } else {
+    } else if (width && width > 768) {
       setSizeImage(600);
     }
   }, [width]);
 
   return (
-    <section id="hero">
+    <section
+      id="hero"
+      style={{
+        // height: `calc(100vh - ${heightHeader}px)`,
+        paddingTop: `${heightHeader / 2}px`,
+      }}
+    >
       <div
-        className={`flex flex-col-reverse md:flex-row  justify-center items-center md:gap-6 max-w-screen min-h-screen md:h-screen md:px-32`}
-        style={{
-          height: `calc(100vh - ${heightHeader}px)`,
-          paddingTop: `${heightHeader}px`,
-        }}
+        className={`flex flex-col-reverse xl:flex-row  justify-center items-center md:gap-[70px] xl:gap-[200px] max-w-screen min-h-screen  py-20 md:px-4 `}
       >
-        <div className="md:w-[800px] flex flex-col items-center md:items-start md:gap-12">
+        <div className="md:w-[600px] flex flex-col items-center md:items-start md:gap-12 ">
           <motion.h1
             ref={titleSectionHero}
-            className="flex flex-col text-xl md:text-5xl font-semibold mt-20 md:mt-0 text-zinc-800 main-intro-text opacity-0  w-fit gap-1 md:gap-4 -tracking-wide text-center md:text-start"
+            className="flex flex-col text-xl md:text-5xl font-semibold mt-10 md:mt-0 text-zinc-800 main-intro-text opacity-0  w-fit gap-1 md:gap-4 -tracking-wide text-center md:text-start"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -113,7 +129,6 @@ export const HeroSection = memo(function HeroSection() {
             </span>
             <span>Create Together!</span>
           </motion.h1>
-
           <motion.div
             ref={descriptionSectionHero}
             initial={{ opacity: 0 }}
@@ -158,36 +173,16 @@ export const HeroSection = memo(function HeroSection() {
             </motion.button>
           </div>
         </div>
-        <motion.div
-          className="md:w-2/4 flex justify-center"
-          initial={{ opacity: 0 }}
-          whileInView={{
-            opacity: 1,
-            transform: ["scale(0)", "scale(1.1)"],
-            transition: {
-              duration: 0.5,
-              ease: "easeInOut",
-              type: "spring",
-              bounce: 0.5,
-              velocity: 10,
-            },
-          }}
-        >
+        <div className="w-[340px] md:w-[400px] xl:w[400px] h-[340px] md:h-[400px] xl:w[400px]">
           <Image
             ref={profileImageSectionHero}
-            src={imageProfile}
-            className="rounded-full object-cover shadow-[0_8px_16px_rgba(0,0,0,0.2)]"
             alt="imageProfile"
+            src={imageProfile}
+            className={`rounded-full object-cover shadow-[0_8px_16px_rgba(0,0,0,0.2)] w-full h-full`}
             width={sizeImage}
             height={sizeImage}
-            style={{
-              width: `${sizeImage}px`,
-              height: `${sizeImage}px`,
-              backdropFilter: "blur(1px)",
-              WebkitBackdropFilter: "blur(1px)",
-            }}
           />
-        </motion.div>
+        </div>
       </div>
       <div ref={arrowDownIconSectionHero} className="relative w-screen mx-auto">
         <FaChevronDown className="absolute -top-10 text-4xl text-sky-400 animate-bounce w-screen mx-auto" />

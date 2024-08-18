@@ -15,18 +15,21 @@ import {
 
 import { MyProvider } from "@/context";
 import { Footer } from "@/components/Footer/Footer";
+import Image from "next/image";
 
 export default function Page() {
+  const imageProfile = "/portfolio/imageProfile-1.jpeg";
+
   return (
     <MyProvider>
       <Header />
       <main className="bg-white  w-screen  flex flex-col items-center">
-        {/* <HeroSection />
-        <IntroduceSection />
-        <TimelineSection /> */}
-        {/* <ProjectsSection /> */}
-        {/* <SkillSection /> */}
-        <ContactSection />
+        <HeroSection />
+        {/* <IntroduceSection />
+        <TimelineSection />
+        <ProjectsSection />
+        <SkillSection />
+        <ContactSection /> */}
         <Footer />
       </main>
     </MyProvider>
