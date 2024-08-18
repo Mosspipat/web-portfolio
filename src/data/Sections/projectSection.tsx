@@ -103,20 +103,20 @@ export const experienceData: ExperienceItem[] = [
     xPosInView: "0",
     ref: null,
     DescriptionAddOn: (
-      <div className="relative w-[1000px] h-[auto]">
+      <div className="relative w-full xl:w-[1000px] h-[auto]">
         <div className="relative h-[500px]">
           <Image
-            className="absolute top-52 -left-[10%] rounded-3xl shadow-2xl  w-96 border-4 border-black"
+            className="absolute top-[130px] xl:top-52 left-1/2 xl:-left-[10%] -translate-x-1/2 xl:translate-x-0 rounded-3xl shadow-2xl w-60 xl:w-96 border-4 border-black"
             src={gameEngineList[2]}
             alt="game1"
           />
           <Image
-            className="absolute -top-[10%] left-[10%] rounded-3xl shadow-2xl z-10 w-96 border-4 border-black"
+            className="absolute -top-[10%] left-1/2 xl:left-[10%] -translate-x-1/2 xl:translate-x-0 rounded-3xl shadow-2xl z-10  w-60  xl:w-96 border-4 border-black"
             src={gameEngineList[0]}
             alt="game3"
           />
           <Image
-            className="absolute top-52 right-[30%] rounded-3xl shadow-2xl w-96 border-4 border-black"
+            className="absolute top-[300px] xl:top-52 left-1/2 xl:right-[30%] -translate-x-1/2 xl:-translate-x-1/2 rounded-3xl shadow-2xl w-60 xl:w-96 border-4 border-black"
             src={gameEngineList[1]}
             alt="game2"
           />

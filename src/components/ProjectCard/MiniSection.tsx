@@ -80,7 +80,7 @@ export const MiniSection = ({
   const posXDescription = useTransform(
     scrollYDescriptionProgress,
     [0, 0.5, 1],
-    // [0, 280, 380].map((element) => (!isReverse ? element * -1 : element))
+
     screenSize !== "MOBILE"
       ? [0, 280, 380].map((element) => (!isReverse ? element * -1 : element))
       : [0, 0, 0]
@@ -89,7 +89,8 @@ export const MiniSection = ({
   const opacityDescription = useTransform(
     scrollYDescriptionProgress,
     [0, 0.5],
-    [0.5, 1]
+    // [0.5, 1]
+    screenSize !== "MOBILE" ? [0.5, 1] : [1, 1]
   );
 
   const RenderButton = ({ label, value }: { label: string; value: string }) => {
