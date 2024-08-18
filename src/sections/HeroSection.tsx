@@ -127,7 +127,7 @@ export const HeroSection = memo(function HeroSection() {
                 My name is Pipat Horakungthong
               </span>
               <span className="text-sm md:text-xl">
-                Hi And Hello I'm developer and Software Engineer!
+                Hi And Hello I&apos;m developer and Software Engineer!
               </span>
               <span className="text-blue-400 text-xl font-bold tracking-normal">
                 based in Thailand, Bangkok.
