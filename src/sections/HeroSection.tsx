@@ -2,11 +2,12 @@
 
 import { animate } from "framer-motion/dom";
 import Image from "next/image";
-import React, { memo, useEffect, useRef, useState } from "react";
+import React, { memo, useContext, useEffect, useRef, useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { scroller } from "react-scroll";
 import { useWindowSize } from "@/hooks";
+import { MyContext } from "@/context";
 
 export const HeroSection = memo(function HeroSection() {
   const profileImageSectionHero = useRef(null);
@@ -20,6 +21,9 @@ export const HeroSection = memo(function HeroSection() {
   const { width } = useWindowSize();
   console.log("🚀: ~ width:", width);
   const [sizeImage, setSizeImage] = useState<number>(0);
+
+  const { heightHeader } = useContext(MyContext);
+  console.log("🚀: ~ heightHeader:", heightHeader);
 
   useEffect(() => {
     // Animate profileImage
@@ -51,21 +55,6 @@ export const HeroSection = memo(function HeroSection() {
         velocity: 10,
       }
     );
-
-    // Animate descriptionHero with a staggered delay after title animation finish
-    // titleAnimation.then(() =>
-    //   animate(
-    //     descriptionSectionHero.current,
-    //     { opacity: [0, 1], y: [50, 0] },
-    //     {
-    //       duration: 0.5,
-    //       ease: "easeOut",
-    //       type: "spring",
-    //       stiffness: 100,
-    //       damping: 15,
-    //     }
-    //   )
-    // );
 
     // Animate buttonHero
     const buttonAnimation = animate(
@@ -99,11 +88,11 @@ export const HeroSection = memo(function HeroSection() {
     }
   }, [width]);
 
-  console.log("window.innerWidth", window.innerWidth);
-
   return (
     <section id="hero">
-      <div className="flex flex-col-reverse md:flex-row  justify-center items-center md:gap-6 max-w-screen min-h-screen md:h-screen md:px-32 pt-[120px] ">
+      <div
+        className={`flex flex-col-reverse md:flex-row  justify-center items-center md:gap-6 max-w-screen min-h-screen md:h-screen md:px-32 pt-[${heightHeader.toString()}px]`}
+      >
         <div className="md:w-[800px] flex flex-col items-center md:items-start md:gap-12">
           <motion.h1
             ref={titleSectionHero}

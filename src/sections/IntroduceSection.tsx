@@ -1,15 +1,18 @@
 "use client";
 
-import { Divider, LottieAnimation, SampleTimeline } from "@/components";
+import { LottieAnimation } from "@/components";
 
-import animationMobile from "../../public/lotties/mobile-lottie.json";
 import animationWebsite from "../../public/lotties/website-lottie.json";
 
 import { dataProfile } from "@/data";
-import { motion, useInView } from "framer-motion";
-import { memo, useRef } from "react";
+import { motion } from "framer-motion";
+import { memo, useContext } from "react";
+import { MyContext } from "@/context";
 
 export const IntroduceSection = memo(function IntroduceSection() {
+  const { heightHeader } = useContext(MyContext);
+  console.log("🚀: ~ heightHeader:", heightHeader);
+
   const ItemProfileDetail = ({
     title,
     des,
@@ -26,9 +29,12 @@ export const IntroduceSection = memo(function IntroduceSection() {
   };
 
   return (
-    <div id="aboutMe" className="flex flex-col items-center w-[800px] h-screen">
+    <div
+      id="aboutMe"
+      className={`flex flex-col items-center w-full md:w-[800px] h-screen`}
+    >
       <motion.div
-        className="flex flex-col items-center justify-center my-auto gap-9 text-black "
+        className={`flex flex-col items-center justify-center my-auto gap-9 text-black bg-red-600 w-screen pt-[${heightHeader.toString()}px]`}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{
@@ -36,10 +42,10 @@ export const IntroduceSection = memo(function IntroduceSection() {
           ease: "easeInOut",
         }}
       >
-        <div className="relative text-center text-6xl font-bold ">
+        <div className="relative text-center text-3xl md:text-6xl font-bold ">
           To get to know me better
           <motion.div
-            className="absolute top-[50%] -right-[18%] translate-x-1/2 -translate-y-1/2  w-[300px]"
+            className="hidden md:block absolute top-[50%] -right-[18%] translate-x-1/2 -translate-y-1/2  w-[300px]"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{
@@ -51,7 +57,7 @@ export const IntroduceSection = memo(function IntroduceSection() {
           </motion.div>
         </div>
         <p>
-          I&apos;s
+          I&apos;m
           <span className="text-blue-600 ml-1 text-4xl font-semibold tracking-wide">
             Web Developer{" "}
           </span>
@@ -60,7 +66,7 @@ export const IntroduceSection = memo(function IntroduceSection() {
             Game Developer
           </span>
         </p>
-        <div className="flex gap-4">
+        <div className="flex flex-col md:flex-row gap-4 bg-green-600">
           <div className="flex flex-col gap-4">
             <div>
               I am a program developer.I have worked on language programming
