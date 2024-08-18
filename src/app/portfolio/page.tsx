@@ -4,7 +4,7 @@ import { Header } from "@/components";
 
 import "../globals.css"; // Adjust the path as needed
 
-import { HeroSection, IntroduceSection } from "@/sections";
+import { HeroSection, IntroduceSection, TimelineSection } from "@/sections";
 
 import { MyProvider } from "@/context";
 
@@ -13,10 +13,10 @@ export default function Page() {
     <MyProvider>
       <Header />
       <main className="bg-white  w-screen  flex flex-col items-center">
-        {/* <HeroSection /> */}
-        <IntroduceSection />
-        {/* <TimelineSection />
-        <ProjectsSection />
+        {/* <HeroSection />
+        <IntroduceSection /> */}
+        <TimelineSection />
+        {/* <ProjectsSection />
         <SkillSection />
         <ContactSection />
         <Footer /> */}

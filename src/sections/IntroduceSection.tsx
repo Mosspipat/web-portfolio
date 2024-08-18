@@ -11,7 +11,6 @@ import { MyContext } from "@/context";
 
 export const IntroduceSection = memo(function IntroduceSection() {
   const { heightHeader } = useContext(MyContext);
-  console.log("🚀: ~ heightHeader:", heightHeader);
 
   const ItemProfileDetail = ({
     title,
