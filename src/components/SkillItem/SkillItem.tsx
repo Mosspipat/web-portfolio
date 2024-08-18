@@ -10,7 +10,7 @@ export const SkillItem = ({
 }: Readonly<SkillItemProps>) => {
   return (
     <motion.div
-      className={` flex flex-col gap-1 items-center py-3 px-4  rounded-lg hover:scale-110 hover:shadow-2xl shadow-md`}
+      className={`flex flex-col gap-1 items-center py-3 px-4 rounded-lg hover:scale-110 hover:shadow-2xl shadow-md`}
       initial={{ scale: 0.5, opacity: 0.5 }}
       whileInView={{ scale: 1.1, opacity: 1 }}
       whileHover={{ scale: 1.2 }}

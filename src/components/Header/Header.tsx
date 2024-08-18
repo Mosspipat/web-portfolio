@@ -1,38 +1,56 @@
-"use client";
+import { MyContext } from "@/context";
+import { useWindowSize } from "@/hooks";
+import { navList } from "@/sections";
 
+import { memo, useContext, useEffect, useRef, useState } from "react";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { Link } from "react-scroll";
-import "./Header.css";
 
-export const Header = () => {
-  const navList = ["hero", "projects", "skills", "contact"];
+export const Header = memo(function Header() {
+  const headerElement = useRef<HTMLDivElement>(null);
+  const [openNav, setOpenNav] = useState(true);
+  const { width } = useWindowSize();
 
-  type NavRender = {
-    href: string;
-    className: string;
-    indexKey: number;
-  };
+  const { setHeightHeader } = useContext(MyContext);
 
-  const navRender = ({ href, className, indexKey }: NavRender) => (
-    <Link
-      to={href}
-      smooth={true}
-      duration={300}
-      className={className}
-      key={indexKey}
-    >
-      {href}
-    </Link>
-  );
+  useEffect(() => {
+    if (width && width < 768) {
+      setOpenNav(false);
+    } else {
+      setOpenNav(true);
+    }
+  }, [width]);
+
+  useEffect(() => {
+    setHeightHeader(headerElement?.current?.clientHeight || 0);
+  });
 
   return (
-    <header
-      className={`fixed top-0 w-full z-10 p-6 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 shadow-xl`}
+    <div
+      ref={headerElement}
+      className="fixed top-0 w-screen z-10 p-6 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 shadow-xl rounded-none border-none "
     >
-      <nav className="flex justify-center items-center gap-6 text-white text-2xl font-bold">
-        {navList.map((nav, indexKey) =>
-          navRender({ href: nav, className: `nav-link`, indexKey })
-        )}
+      <nav className="flex flex-col items-start w-screen md:flex-row md:justify-center md:items-center gap-6  text-white sm:text-sm md:text-base  lg:text-2xl font-bold text-start md:text-center">
+        <RxHamburgerMenu
+          className="md:hidden"
+          onClick={() => setOpenNav((prev) => !prev)}
+          size={30}
+        />
+
+        {openNav
+          ? navList.map((navItem) => (
+              <Link
+                key={navItem.name}
+                to={navItem.link}
+                smooth={true}
+                duration={300}
+                className="nav-link"
+              >
+                {navItem.name.charAt(0).toUpperCase() + navItem.name.slice(1)}
+              </Link>
+            ))
+          : null}
       </nav>
-    </header>
+    </div>
   );
-};
+});

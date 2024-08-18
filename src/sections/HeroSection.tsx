@@ -2,10 +2,14 @@
 
 import { animate } from "framer-motion/dom";
 import Image from "next/image";
-import React, { useEffect, useRef } from "react";
+import React, { memo, useContext, useEffect, useRef, useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
+import { motion } from "framer-motion";
+import { scroller } from "react-scroll";
+import { useWindowSize } from "@/hooks";
+import { MyContext } from "@/context";
 
-export const HeroSection = () => {
+export const HeroSection = memo(function HeroSection() {
   const profileImageSectionHero = useRef(null);
   const titleSectionHero = useRef(null);
   const descriptionSectionHero = useRef(null);
@@ -13,6 +17,11 @@ export const HeroSection = () => {
   const arrowDownIconSectionHero = useRef(null);
 
   const imageProfile = "/portfolio/imageProfile-1.jpeg";
+
+  const { width } = useWindowSize();
+  const [sizeImage, setSizeImage] = useState<number>(0);
+
+  const { heightHeader } = useContext(MyContext);
 
   useEffect(() => {
     // Animate profileImage
@@ -45,21 +54,6 @@ export const HeroSection = () => {
       }
     );
 
-    // Animate descriptionHero with a staggered delay after title animation finish
-    titleAnimation.then(() =>
-      animate(
-        descriptionSectionHero.current,
-        { opacity: [0, 1], x: [-300, 0] },
-        {
-          duration: 0.5,
-          ease: "easeOut",
-          type: "spring",
-          stiffness: 100,
-          damping: 15,
-        }
-      )
-    );
-
     // Animate buttonHero
     const buttonAnimation = animate(
       buttonSectionHero.current,
@@ -72,85 +66,110 @@ export const HeroSection = () => {
         damping: 15,
       }
     );
-
-    //animate arrowDownIconSectionHero
-    buttonAnimation.then(() =>
-      animate(
-        arrowDownIconSectionHero.current,
-        { opacity: [0, 1], x: [-300, 0] },
-        {
-          duration: 0.5,
-          ease: "easeOut",
-          type: "spring",
-          stiffness: 100,
-          damping: 15,
-        }
-      )
-    );
   }, []);
 
+  const scrollTo = (id: string) => {
+    scroller.scrollTo(id, {
+      smooth: true,
+      duration: 500,
+      offset: -50,
+    });
+  };
+
+  useEffect(() => {
+    if (width && width <= 768) {
+      // setSizeImage(window.innerWidth * 0.4);
+      setSizeImage(200);
+    } else if (width && width > 768) {
+      setSizeImage(600);
+    }
+  }, [width]);
+
   return (
-    <section id="hero" className="flex gap-6 items-center h-screen px-32">
-      <div className="w-1/2 flex flex-col gap-12">
-        <h1
-          ref={titleSectionHero}
-          className="text-7xl font-bold  text-zinc-800 main-intro-text opacity-0"
-        >
-          Build
-          <span className="relative">
-            <span className="block"> Solutions</span>
-            <span className="block text-blue-400">
-              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Innovate
+    <section
+      id="hero"
+      style={{
+        // height: `calc(100vh - ${heightHeader}px)`,
+        paddingTop: `${heightHeader / 2}px`,
+      }}
+    >
+      <div
+        className={`flex flex-col-reverse xl:flex-row  justify-center items-center md:gap-[70px] xl:gap-[200px] max-w-screen min-h-screen  py-20 md:px-4 `}
+      >
+        <div className="md:w-[600px] flex flex-col items-center md:items-start md:gap-12 ">
+          <motion.h1
+            ref={titleSectionHero}
+            className="flex flex-col text-xl md:text-5xl font-semibold mt-10 md:mt-0 text-zinc-800 main-intro-text opacity-0  w-fit gap-1 md:gap-4 -tracking-wide text-center md:text-start"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            Smart Work and
+            <span className="relative">
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent text-base md:text-6xl ">
+                Fun Collaboration Let’s Innovate and
               </span>
             </span>
-          </span>
-          , Scale, and Empower
-        </h1>
-        <p
-          ref={descriptionSectionHero}
-          className="mt-4 text-zinc-800 description-text w-3/4 opacity-0"
-        >
-          Hi, I’m Pipat Horakungthong! With over 2 years of experience in web
-          development and scalable software solutions and 3 years with game
-          developer with unity engine and web game development, I’m ready to
-          transform your ideas into reality.
-        </p>
-        <div className="flex gap-2 opacity-0" ref={buttonSectionHero}>
-          <button className="py-4 px-8 shadow-2xl rounded-full bg-gradient-to-br from-pink-600 to-sky-900 text-2xl font-semibold tracking-normal">
-            Contact me
-          </button>
-          <button
-            className="py-4 px-8 border-2 border-cyan-500 shadow-2xl rounded-full bg-gradient-to-br from-blue-700 to-pink-600 bg-clip-text text-transparent text-2xl font-semibold tracking-normal"
-            style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}
+            <span>Create Together!</span>
+          </motion.h1>
+          <motion.div
+            ref={descriptionSectionHero}
+            initial={{ opacity: 0 }}
+            whileInView={{
+              opacity: 1,
+              y: [20, 0],
+            }}
+            transition={{ duration: 0.3, delay: 0.5 }}
+            className="mt-4 text-zinc-800 font-semibold"
           >
-            Work portfolio
-          </button>
+            <div className="flex flex-col items-center md:items-start my-2 gap-2">
+              <span className="font-bold w-fit text-base md:text-4xl ">
+                My name is Pipat Horakungthong
+              </span>
+              <span className="text-sm md:text-xl">
+                Hi And Hello I&apos;m developer and Software Engineer!
+              </span>
+              <span className="text-blue-400 text-xl font-bold tracking-normal">
+                based in Thailand, Bangkok.
+              </span>
+              <br />
+            </div>
+          </motion.div>
+          <div
+            className="flex flex-col-reverse md:flex-row gap-4 opacity-0 "
+            ref={buttonSectionHero}
+          >
+            <motion.button
+              className="py-2 md:py-4 px-4 md:px-8 flex-auto shadow-2xl rounded-full bg-gradient-to-br from-pink-600 to-sky-900 text-2xl font-semibold tracking-normal"
+              whileHover={{ scale: 1.1 }}
+              onClick={() => scrollTo("contact")}
+            >
+              Contact me
+            </motion.button>
+            <motion.button
+              className="py-2 md:py-4 px-4 md:px-8 flex-auto border-2 border-cyan-500 shadow-2xl rounded-full bg-gradient-to-br from-blue-700 to-pink-600 bg-clip-text text-transparent text-2xl font-semibold tracking-normal"
+              whileHover={{ scale: 1.1 }}
+              style={{ textShadow: "0px 3px 4px rgba(94, 94, 94, 0.5)" }}
+              onClick={() => scrollTo("projects")}
+            >
+              Work portfolio
+            </motion.button>
+          </div>
+        </div>
+        <div className="w-[340px] md:w-[500px] 2xl:w[600px] h-[340px] md:h-[500px] 2xl:w[600px]">
+          <Image
+            ref={profileImageSectionHero}
+            alt="imageProfile"
+            src={imageProfile}
+            className={`rounded-full object-cover shadow-[0_8px_16px_rgba(0,0,0,0.2)] w-full h-full`}
+            width={sizeImage}
+            height={sizeImage}
+          />
         </div>
       </div>
-      <div className="w-2/4 ">
-        <Image
-          ref={profileImageSectionHero}
-          src={imageProfile}
-          className="rounded-full w-[600px] h-[600px] object-cover m-auto shadow-[0_8px_16px_rgba(0,0,0,0.2)] opacity-0"
-          alt="imageProfile"
-          width={600}
-          height={600}
-          style={{
-            backdropFilter: "blur(1px)",
-            WebkitBackdropFilter: "blur(1px)",
-          }}
-        />
-      </div>
-      <div
-        ref={arrowDownIconSectionHero}
-        className="animate-bounce absolute bottom-10 left-1/2 translate-x-1/2 opacity-0"
-      >
-        <FaChevronDown
-          className="text-4xl text-sky-400"
-          style={{ transform: "translateY(50%)" }}
-        />
+      <div ref={arrowDownIconSectionHero} className="relative w-screen mx-auto">
+        <FaChevronDown className="absolute -top-10 text-4xl text-sky-400 animate-bounce w-screen mx-auto" />
       </div>
     </section>
   );
-};
+});

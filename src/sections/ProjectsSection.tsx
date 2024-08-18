@@ -1,52 +1,57 @@
 "use client";
 
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { MotionComponent } from "@/components";
-import { Items } from "@/components/MotionComponent/MotionComponent";
-import { useState } from "react";
+import { MiniSection } from "@/components";
+
+import { memo, useContext, useState } from "react";
 import { motion } from "framer-motion";
 
-export const ProjectsSection = () => {
-  const [selectedId, setSelectedId] = useState("");
-  const testImg = "/portfolio/dog-golden.jpg";
+import { MyContext } from "@/context";
+import { experienceData } from "@/data";
 
-  const items: Items[] = [
-    { id: 1, subtitle: "Subtitle 1", title: "Title 1" },
-    { id: 2, subtitle: "Subtitle 2", title: "Title 2" },
-    { id: 3, subtitle: "Subtitle 3", title: "Title 3" },
-    { id: 4, subtitle: "Subtitle 4", title: "Title 4" },
-    { id: 5, subtitle: "Subtitle 5", title: "Title 5" },
-  ];
+export const ProjectsSection = memo(function ProjectsSection() {
+  const { heightHeader } = useContext(MyContext);
 
   return (
-    <section className="bg-gradient-to-b from-[#2a2a2a] via-[#202020] to-[#2a2a2a] w-full h-screen">
-      <div className="flex flex-col items-center justify-center gap-10 w-full h-screen">
-        <motion.div
-          className=" font-bold"
-          initial={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-          whileInView={{ opacity: 1, scale: 3 }}
+    <section
+      id="projects"
+      className="bg-gradient-to-b from-[#2a2a2a] via-[#202020] to-[#2a2a2a] w-full my-6"
+      style={{ paddingTop: `${heightHeader}px` }}
+    >
+      <motion.div className="h-auto flex flex-col items-center justify-center gap-8 my-8 ">
+        <motion.h2
+          className="text-[#07b0f3] text-6xl xl:text-8xl shadow-blue-500 font-bold"
+          style={{
+            textShadow: "0px 10px 20px blue",
+          }}
+          initial={{ fontSize: "4vw" }}
+          whileInView={{ fontSize: "6vw" }}
         >
-          Website{" "}
-        </motion.div>
-        <motion.div
-          className=" font-bold"
+          Work Experience
+        </motion.h2>
+
+        <motion.p
+          className="text-xl xl:text-3xl font-normal xl:w-[1400px] text-center xl:text-start px-4 md:px-0 "
           initial={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-          whileInView={{ opacity: 1, scale: 3 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1, animation: "easeInOut" }}
         >
-          Game{" "}
-        </motion.div>
-        <motion.div
-          className=" font-bold"
-          initial={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-          whileInView={{ opacity: 1, scale: 3 }}
-        >
-          Other{" "}
-        </motion.div>
-      </div>
+          I am a versatile developer with experience in web development, game
+          development, social platform effects, and AR/VR projects, specializing
+          in creating dynamic and immersive digital experiences.
+        </motion.p>
+        {experienceData.map((experience, index) => {
+          const isReverse = index % 2 === 0;
+          return (
+            <MiniSection
+              {...experience}
+              showCaseList={experience.showcaseProject}
+              isReverse={isReverse}
+              key={index}
+            />
+          );
+        })}
+      </motion.div>
     </section>
   );
-};
+});
