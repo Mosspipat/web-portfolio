@@ -42,18 +42,18 @@ export const MiniSection = ({
 
   const { scrollYProgress: scrollYContainerProgress } = useScroll({
     target: refTitle,
-    offset: ["start end", "end start"], // Section fully enters, fully leaves
+    offset: ["start end", "end start"],
   });
 
   const opacityContainer = useTransform(
     scrollYContainerProgress,
     [0, 0.5, 1],
-    [0, 1, 0]
+    screenSize !== "MOBILE" ? [0, 1, 1] : [0, 1, 1]
   );
 
   const { scrollYProgress: scrollYTitleProgress } = useScroll({
     target: refTitle,
-    offset: ["start end", "end start"], // Section fully enters, fully leaves
+    offset: ["start end", "end start"],
   });
 
   const posXTitle = useTransform(
@@ -73,8 +73,8 @@ export const MiniSection = ({
   const opacityTitle = useTransform(scrollYTitleProgress, [0, 0.5], [0, 1]);
 
   const { scrollYProgress: scrollYDescriptionProgress } = useScroll({
-    target: refTitle,
-    offset: ["start end", "end start"], // Section fully enters, fully leaves
+    target: refDescription,
+    offset: ["start end", "end start"],
   });
 
   const posXDescription = useTransform(
@@ -89,7 +89,6 @@ export const MiniSection = ({
   const opacityDescription = useTransform(
     scrollYDescriptionProgress,
     [0, 0.5],
-    // [0.5, 1]
     screenSize !== "MOBILE" ? [0.5, 1] : [1, 1]
   );
 
@@ -111,7 +110,7 @@ export const MiniSection = ({
   return (
     <motion.div
       ref={refContainer}
-      className="relative flex flex-col items-center gap-6 bg-blue-600-700 w-full h-full "
+      className="relative flex flex-col items-center gap-6 bg-blue-600-700 w-full h-full pb-[200px] md:pb-0"
       style={{ opacity: opacityContainer }}
     >
       <motion.h3
