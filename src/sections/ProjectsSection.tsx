@@ -1,6 +1,5 @@
 "use client";
 
-import "swiper/css";
 import { MiniSection } from "@/components";
 
 import { memo, useContext, useState } from "react";
