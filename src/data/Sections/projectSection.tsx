@@ -1,4 +1,5 @@
 "use client";
+
 import Image, { StaticImageData } from "next/image";
 import { LegacyRef } from "react";
 
@@ -96,7 +97,7 @@ export const experienceData: ExperienceItem[] = [
     DescriptionAddOn: (
       <iframe
         src="https://ar-car-3d.netlify.app/"
-        className="h-[600px] w-full xl:w-[1200px] border-none"
+        className="h-[600px] w-1/2 xl:w-[1200px] border-none bg-red-500"
         title="3D Car Viewer"
       />
     ),
