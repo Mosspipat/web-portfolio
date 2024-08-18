@@ -13,8 +13,8 @@ export default function Page() {
     <MyProvider>
       <Header />
       <main className="bg-white  w-screen  flex flex-col items-center">
-        <HeroSection />
-        {/* <IntroduceSection /> */}
+        {/* <HeroSection /> */}
+        <IntroduceSection />
         {/* <TimelineSection />
         <ProjectsSection />
         <SkillSection />

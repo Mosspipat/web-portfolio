@@ -34,7 +34,7 @@ export const IntroduceSection = memo(function IntroduceSection() {
       className={`flex flex-col items-center w-full md:w-[800px] h-screen`}
     >
       <motion.div
-        className={`flex flex-col items-center justify-center my-auto gap-9 text-black bg-red-600 w-screen pt-[${heightHeader.toString()}px]`}
+        className={`flex flex-col items-center justify-center my-auto gap-9 text-black  w-screen pt-[${heightHeader.toString()}px]`}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{
@@ -58,15 +58,15 @@ export const IntroduceSection = memo(function IntroduceSection() {
         </div>
         <p>
           I&apos;m
-          <span className="text-blue-600 ml-1 text-4xl font-semibold tracking-wide">
-            Web Developer{" "}
+          <span className="text-blue-600 ml-1  text-lg md:text-4xl font-semibold tracking-wide">
+            Web Developer
           </span>
-          and
-          <span className="text-blue-600 ml-1 text-4xl font-semibold tracking-wide">
+          <span className="px-1">and</span>
+          <span className="text-blue-600 ml-1  text-lg md:text-4xl font-semibold tracking-wide">
             Game Developer
           </span>
         </p>
-        <div className="flex flex-col md:flex-row gap-4 bg-green-600">
+        <div className="flex flex-col md:flex-row gap-4  w-full px-4 md:px-0 md:w-[1000px]">
           <div className="flex flex-col gap-4">
             <div>
               I am a program developer.I have worked on language programming
