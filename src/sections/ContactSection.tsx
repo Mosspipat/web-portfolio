@@ -1,12 +1,13 @@
 "use client";
-import React, { memo } from "react";
+import React, { memo, useContext } from "react";
 import { motion } from "framer-motion";
 import { FaPhoneFlip } from "react-icons/fa6";
 import { ContactInfo, contactInfoList } from "@/data/sections";
+import { MyContext } from "@/context";
 
 export const ContactSection = memo(function ContactSection() {
+  const { heightHeader } = useContext(MyContext);
   const RenderIcon = ({ value, icon, onClick, title, label }: ContactInfo) => {
-    console.log(onClick);
     return (
       <motion.div
         className="flex items-center p-1 hover:cursor-pointer my-auto"
@@ -20,11 +21,11 @@ export const ContactSection = memo(function ContactSection() {
         }}
         onClick={() => (onClick ? onClick() : () => {})}
       >
-        <div className="flex items-center justify-center w-18 h-18 rounded-full  p-2 z-20 bg-white ">
+        {/* <div className="flex items-center justify-center w-18 h-18 rounded-full  p-2 z-20 bg-white ">
           {icon}
-        </div>
-        <div className=" -translate-x-6 text-red-700 text-xl font-bold bg-white text-center rounded-full w-auto px-10 ">
-          {title} : {label}
+        </div> */}
+        <div className=" flex items-center  text-red-700 text-base md:text-xl font-bold bg-white text-center rounded-full w-auto px-10 py-2 ">
+          {icon} : {label}
         </div>
       </motion.div>
     );
@@ -33,13 +34,16 @@ export const ContactSection = memo(function ContactSection() {
   return (
     <motion.div
       id="contact"
-      className=" flex flex-col items-center justify-center w-full h-screen bg-black gap-20"
+      style={{
+        paddingTop: `${heightHeader}px`,
+      }}
+      className=" flex flex-col items-center justify-center w-full min-h-screen bg-black gap-20"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
     >
       <h2 className="text-6xl font-bold text-center mt-24">Contact</h2>
       <motion.p
-        className="text-center text-3xl w-1/2 mx-auto mt-6 p-4 shadow-xl shadow-blue-500"
+        className="text-center text-3xl  md:w-1/2 mx-10 md:mx-auto mt-6 p-4 shadow-xl shadow-blue-500"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1, animation: "easeInOut" }}
@@ -48,10 +52,10 @@ export const ContactSection = memo(function ContactSection() {
         great results. I’m excited to bring my enthusiasm and skills to your
         team and learn from the best
       </motion.p>
-      <p className="text-center text-lg">
+      <p className="text-center text-lg px-20 md:px-0">
         You can also find me on the following channels.
       </p>
-      <div className="flex flex-wrap justify-center items-start gap-6 ">
+      <div className="flex flex-col md:flex-row flex-wrap justify-center items-start gap-6 pb-10 md:pb-0">
         {contactInfoList.map((contactInfo) => {
           return (
             <RenderIcon
