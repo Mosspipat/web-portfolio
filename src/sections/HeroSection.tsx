@@ -91,7 +91,11 @@ export const HeroSection = memo(function HeroSection() {
   return (
     <section id="hero">
       <div
-        className={`flex flex-col-reverse md:flex-row  justify-center items-center md:gap-6 max-w-screen min-h-screen md:h-screen md:px-32 pt-[${heightHeader.toString()}px]`}
+        className={`flex flex-col-reverse md:flex-row  justify-center items-center md:gap-6 max-w-screen min-h-screen md:h-screen md:px-32`}
+        style={{
+          height: `calc(100vh - ${heightHeader}px)`,
+          paddingTop: `${heightHeader}px`,
+        }}
       >
         <div className="md:w-[800px] flex flex-col items-center md:items-start md:gap-12">
           <motion.h1
