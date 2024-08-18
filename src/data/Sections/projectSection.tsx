@@ -12,8 +12,6 @@ import gameFilter2 from "/public/portfolio/filter/game-2.png";
 
 import motion from "framer-motion";
 
-import "../../app/globals.css";
-
 export type WorkList = {
   label: string;
   link: string;
