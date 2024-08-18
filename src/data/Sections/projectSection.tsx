@@ -1,4 +1,3 @@
-import { ThreeDCardDemoProps } from "@/components";
 import Image, { StaticImageData } from "next/image";
 import { LegacyRef } from "react";
 
@@ -65,6 +64,13 @@ type optionCard = {
   ref: LegacyRef<HTMLHeadingElement>;
   DescriptionAddOn?: React.ReactElement | undefined;
   showcaseProject?: WorkList[];
+};
+
+export type ThreeDCardDemoProps = {
+  title?: string;
+  description?: string;
+  image?: string;
+  link?: string;
 };
 
 export type ExperienceItem = ThreeDCardDemoProps & optionCard;
