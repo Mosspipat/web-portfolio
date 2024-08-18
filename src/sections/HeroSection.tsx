@@ -20,25 +20,8 @@ export const HeroSection = memo(function HeroSection() {
 
   const { width } = useWindowSize();
   const [sizeImage, setSizeImage] = useState<number>(0);
-  console.log("🚀: ~ sizeImage:", sizeImage);
 
   const { heightHeader } = useContext(MyContext);
-  console.log("🚀: ~ heightHeader:", heightHeader);
-
-  const ImageProfileRef = useRef<HTMLImageElement | null>(null);
-
-  console.log(ImageProfileRef);
-
-  // useEffect(() => {
-  //   if (ImageProfileRef.current) {
-  //     const elementWidth = ImageProfileRef.current.offsetWidth;
-  //     console.log("🚀: ~ elementWidth:", elementWidth);
-  //     // Set the width and height of the element
-  //     setSizeImage(400);
-  //     ImageProfileRef.current.style.width = `${sizeImage}200px`;
-  //     ImageProfileRef.current.style.height = `${sizeImage}200px`;
-  //   }
-  // }, []);
 
   useEffect(() => {
     // Animate profileImage
@@ -173,7 +156,7 @@ export const HeroSection = memo(function HeroSection() {
             </motion.button>
           </div>
         </div>
-        <div className="w-[340px] md:w-[400px] xl:w[400px] h-[340px] md:h-[400px] xl:w[400px]">
+        <div className="w-[340px] md:w-[500px] 2xl:w[600px] h-[340px] md:h-[500px] 2xl:w[600px]">
           <Image
             ref={profileImageSectionHero}
             alt="imageProfile"

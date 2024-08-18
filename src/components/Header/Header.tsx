@@ -36,6 +36,7 @@ export const Header = memo(function Header() {
           onClick={() => setOpenNav((prev) => !prev)}
           size={30}
         />
+
         {openNav
           ? navList.map((navItem) => (
               <Link
