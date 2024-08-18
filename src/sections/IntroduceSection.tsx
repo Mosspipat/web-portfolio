@@ -4,10 +4,10 @@ import { LottieAnimation } from "@/components";
 
 import animationWebsite from "../../public/lotties/website-lottie.json";
 
-import { dataProfile } from "@/data";
 import { motion } from "framer-motion";
 import { memo, useContext } from "react";
 import { MyContext } from "@/context";
+import { dataProfile } from "@/data";
 
 export const IntroduceSection = memo(function IntroduceSection() {
   const { heightHeader } = useContext(MyContext);
