@@ -17,6 +17,7 @@ import "../../app/globals.css";
 export type WorkList = {
   label: string;
   link: string;
+  innerLink?: boolean;
 };
 
 const projectWebsiteList: WorkList[] = [
@@ -48,11 +49,13 @@ const projectGameEngineList: WorkList[] = [
 const projectSocialPlatformList: WorkList[] = [
   {
     label: "Quiz filter facebook platform ",
-    link: "www.google.com",
+    link: "filter-doikham",
+    innerLink: true,
   },
   {
     label: "Game filter facebook platform",
-    link: "www.google.com",
+    link: "filter-buddy",
+    innerLink: true,
   },
 ];
 
