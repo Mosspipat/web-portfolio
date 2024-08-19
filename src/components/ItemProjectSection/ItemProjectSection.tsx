@@ -31,9 +31,9 @@ export const ItemProjectSection = ({
   const [screenSize, setScreenSize] = useState<ScreenSize>("DESKTOP");
 
   useEffect(() => {
-    if (width && width < 768) {
+    if (width && width <= 426) {
       setScreenSize("MOBILE");
-    } else if (width && width < 1024) {
+    } else if (width && width <= 800) {
       setScreenSize("TABLET");
     } else {
       setScreenSize("DESKTOP");
@@ -52,7 +52,7 @@ export const ItemProjectSection = ({
   const opacityContainer = useTransform(
     scrollYContainerProgress,
     [0, 0.5, 1],
-    screenSize !== "MOBILE" ? [0, 1, 1] : [0, 1, 1]
+    screenSize === "DESKTOP" ? [0, 1, 1] : [0, 1, 1]
   );
 
   const { scrollYProgress: scrollYTitleProgress } = useScroll({
@@ -63,7 +63,7 @@ export const ItemProjectSection = ({
   const posXTitle = useTransform(
     scrollYTitleProgress,
     [0, 0.5, 1],
-    screenSize !== "MOBILE"
+    screenSize === "DESKTOP"
       ? [0, 280, 380].map((element) => (isReverse ? element * -1 : element))
       : [0, 0, 0]
   );
@@ -71,7 +71,7 @@ export const ItemProjectSection = ({
   const posYTitle = useTransform(
     scrollYTitleProgress,
     [0, 0.3],
-    screenSize !== "MOBILE" ? [450, 450] : [0, 0]
+    screenSize === "DESKTOP" ? [450, 450] : [0, 0]
   );
 
   const opacityTitle = useTransform(scrollYTitleProgress, [0, 0.5], [0, 1]);
@@ -85,7 +85,7 @@ export const ItemProjectSection = ({
     scrollYDescriptionProgress,
     [0, 0.5, 1],
 
-    screenSize !== "MOBILE"
+    screenSize === "DESKTOP"
       ? [0, 280, 380].map((element) => (!isReverse ? element * -1 : element))
       : [0, 0, 0]
   );
@@ -93,7 +93,7 @@ export const ItemProjectSection = ({
   const opacityDescription = useTransform(
     scrollYDescriptionProgress,
     [0, 0.5],
-    screenSize !== "MOBILE" ? [0.5, 1] : [1, 1]
+    screenSize === "DESKTOP" ? [0.5, 1] : [1, 1]
   );
 
   const RenderButton = ({
@@ -112,14 +112,7 @@ export const ItemProjectSection = ({
         transition={{ duration: 0.3, ease: [0, 0.71, 0.2, 1.01] }}
         onClick={() => {
           if (innerLink) {
-            console.log(value);
-            // router.push({
-            //   pathname: videoDemo,
-            // });
-
             router.push(`/videoDemo/${value}`);
-
-            console.log("click to inner route");
           } else {
             window.open(value, "_blank");
           }
