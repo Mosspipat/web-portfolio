@@ -9,11 +9,7 @@ import { ItemProjectSection } from "@/components";
 
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
-export const ProjectsSection = memo(function ProjectsSection({
-  router,
-}: {
-  router: AppRouterInstance;
-}) {
+export const ProjectsSection = memo(function ProjectsSection() {
   const { heightHeader } = useContext(MyContext);
 
   return (
@@ -52,7 +48,6 @@ export const ProjectsSection = memo(function ProjectsSection({
               showCaseList={experience.showcaseProject}
               isReverse={isReverse}
               key={index}
-              router={router}
             />
           );
         })}

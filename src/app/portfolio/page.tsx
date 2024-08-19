@@ -16,12 +16,10 @@ import {
 import { MyProvider } from "@/context";
 import { Footer } from "@/components/Footer/Footer";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+
 
 export default function Page() {
   const imageProfile = "/portfolio/imageProfile-1.jpeg";
-
-  const router = useRouter();
 
   return (
     <MyProvider>
@@ -30,7 +28,7 @@ export default function Page() {
         <HeroSection />
         <IntroduceSection />
         <TimelineSection />
-        <ProjectsSection router={router} />
+        <ProjectsSection />
         <SkillSection />
         <ContactSection />
         <Footer />

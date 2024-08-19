@@ -3,8 +3,7 @@
 import { WorkList } from "@/data";
 import { useScreenSize, useViewport } from "@/hooks";
 import { useScroll, useTransform, motion } from "framer-motion";
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { NextRouter, useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 import { useEffect, useRef, useState } from "react";
 
@@ -15,7 +14,6 @@ export const ItemProjectSection = ({
   isReverse = false,
   DescriptionAddOn = <></>,
   showCaseList,
-  router,
 }: {
   title?: string;
   description?: string;
@@ -23,9 +21,10 @@ export const ItemProjectSection = ({
   isReverse?: boolean;
   DescriptionAddOn?: React.ReactElement;
   showCaseList?: WorkList[];
-  router: AppRouterInstance;
 }) => {
   const { width } = useScreenSize();
+
+  const router = useRouter();
 
   type ScreenSize = "MOBILE" | "TABLET" | "DESKTOP";
 
