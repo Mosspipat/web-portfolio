@@ -175,7 +175,7 @@ export const experienceData: ExperienceItem[] = [
       <div className="relative w-full h-[400px] z-50 xl:-z-[100] ">
         <iframe
           src="https://63a9af4c441cc521a40cbfd4--ar-furniture-3d.netlify.app/"
-          className=" absolute -top-[20] left-[10px]  md:-left-[40] h-[400px] w-[400px] xl:w-[600px] border-4 border-blue-500 rounded-3xl pointer-events-none"
+          className="absolute -top-[20%] left-[10px]  md:left-[25%] xl:left-[0%] h-[400px] w-[400px] xl:w-[600px] border-4 border-blue-500 rounded-3xl pointer-events-none"
           title="Furniture 3D"
         />
       </div>
