@@ -10,7 +10,7 @@ interface VideoProps {
 
 const VideoDemo = ({ params }: VideoProps) => {
   const { id } = params;
-  const router = useRouter();
+
   const videoSrc = `/filter/${id}.mp4`;
 
   return (

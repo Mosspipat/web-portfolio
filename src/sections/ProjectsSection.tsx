@@ -1,14 +1,19 @@
 "use client";
 
-import { MiniSection } from "@/components";
-
-import { memo, useContext, useState } from "react";
+import { memo, useContext } from "react";
 import { motion } from "framer-motion";
 
 import { MyContext } from "@/context";
 import { experienceData } from "@/data";
+import { ItemProjectSection } from "@/components";
 
-export const ProjectsSection = memo(function ProjectsSection() {
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+
+export const ProjectsSection = memo(function ProjectsSection({
+  router,
+}: {
+  router: AppRouterInstance;
+}) {
   const { heightHeader } = useContext(MyContext);
 
   return (
@@ -42,11 +47,12 @@ export const ProjectsSection = memo(function ProjectsSection() {
         {experienceData.map((experience, index) => {
           const isReverse = index % 2 === 0;
           return (
-            <MiniSection
+            <ItemProjectSection
               {...experience}
               showCaseList={experience.showcaseProject}
               isReverse={isReverse}
               key={index}
+              router={router}
             />
           );
         })}

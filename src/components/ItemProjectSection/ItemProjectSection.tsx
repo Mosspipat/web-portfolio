@@ -3,16 +3,19 @@
 import { WorkList } from "@/data";
 import { useScreenSize, useViewport } from "@/hooks";
 import { useScroll, useTransform, motion } from "framer-motion";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { NextRouter, useRouter } from "next/router";
 
 import { useEffect, useRef, useState } from "react";
 
-export const MiniSection = ({
+export const ItemProjectSection = ({
   title = "",
   description = "",
   link = "",
   isReverse = false,
   DescriptionAddOn = <></>,
   showCaseList,
+  router,
 }: {
   title?: string;
   description?: string;
@@ -20,6 +23,7 @@ export const MiniSection = ({
   isReverse?: boolean;
   DescriptionAddOn?: React.ReactElement;
   showCaseList?: WorkList[];
+  router: AppRouterInstance;
 }) => {
   const { width } = useScreenSize();
 
@@ -102,7 +106,6 @@ export const MiniSection = ({
     value: string;
     innerLink?: boolean;
   }) => {
-    console.log("innerLink:", innerLink);
     return (
       <motion.button
         className="text-xl xl:text-xl font-bold bg-black border-blue-200 border-2 rounded-3xl px-4 py-2 w-auto shadow-black shadow-xl"
@@ -110,9 +113,14 @@ export const MiniSection = ({
         transition={{ duration: 0.3, ease: [0, 0.71, 0.2, 1.01] }}
         onClick={() => {
           if (innerLink) {
-            console.log("click to inner route");
+            console.log(value);
+            // router.push({
+            //   pathname: videoDemo,
+            // });
 
-            // window.open(value, "_blank"); // my inner link in my website
+            router.push(`/videoDemo/${value}`);
+
+            console.log("click to inner route");
           } else {
             window.open(value, "_blank");
           }
