@@ -136,7 +136,7 @@ export const HeroSection = memo(function HeroSection() {
             </div>
           </motion.div>
           <div
-            className="flex flex-col-reverse md:flex-row gap-4 opacity-0 "
+            className="flex flex-col-reverse md:flex-row md:mx-auto xl:mx-0 gap-4 opacity-0  "
             ref={buttonSectionHero}
           >
             <motion.button

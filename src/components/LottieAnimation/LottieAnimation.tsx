@@ -24,9 +24,7 @@ export const LottieAnimation = ({
       <LottieComponent
         animationData={animationData}
         loop={true}
-        onComplete={() => {
-          console.log("hello");
-        }}
+        onComplete={() => {}}
       />
     </div>
   );

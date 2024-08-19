@@ -1,7 +1,6 @@
 "use client";
 
 import { timelineVerticalData } from "@/data";
-console.log("🚀: ~ timelineVerticalData:", timelineVerticalData);
 import { memo, useContext, useEffect } from "react";
 import { motion } from "framer-motion";
 
