@@ -1,4 +1,5 @@
 "use client";
+
 import { WorkList } from "@/data";
 import { useScreenSize, useViewport } from "@/hooks";
 import { useScroll, useTransform, motion } from "framer-motion";
@@ -92,14 +93,29 @@ export const MiniSection = ({
     screenSize !== "MOBILE" ? [0.5, 1] : [1, 1]
   );
 
-  const RenderButton = ({ label, value }: { label: string; value: string }) => {
+  const RenderButton = ({
+    label,
+    value,
+    innerLink,
+  }: {
+    label: string;
+    value: string;
+    innerLink?: boolean;
+  }) => {
+    console.log("innerLink:", innerLink);
     return (
       <motion.button
         className="text-xl xl:text-xl font-bold bg-black border-blue-200 border-2 rounded-3xl px-4 py-2 w-auto shadow-black shadow-xl"
         whileHover={{ scale: 1.1 }}
         transition={{ duration: 0.3, ease: [0, 0.71, 0.2, 1.01] }}
         onClick={() => {
-          window.open(value, "_blank");
+          if (innerLink) {
+            console.log("click to inner route");
+
+            // window.open(value, "_blank"); // my inner link in my website
+          } else {
+            window.open(value, "_blank");
+          }
         }}
       >
         {label}
@@ -148,6 +164,7 @@ export const MiniSection = ({
                 <RenderButton
                   label={showcase.label}
                   value={showcase.link}
+                  innerLink={showcase.innerLink}
                   key={showcase.label}
                 />
               );
