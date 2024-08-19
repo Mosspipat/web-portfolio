@@ -1,6 +1,6 @@
 export * from "./Header";
 export * from "./Footer";
-export * from "./ProjectCard";
+export * from "./ItemProjectSection";
 export * from "./SkillItem";
 export * from "./Divider";
 export * from "./LottieAnimation";

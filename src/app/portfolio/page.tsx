@@ -17,6 +17,7 @@ import { MyProvider } from "@/context";
 import { Footer } from "@/components/Footer/Footer";
 import Image from "next/image";
 
+
 export default function Page() {
   const imageProfile = "/portfolio/imageProfile-1.jpeg";
 
