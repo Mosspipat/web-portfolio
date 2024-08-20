@@ -1,5 +1,6 @@
+"use client";
 import { MyContext } from "@/context";
-import { useWindowSize } from "@/hooks";
+import { useScreenSize } from "@/hooks";
 import { navList } from "@/sections";
 
 import { memo, useContext, useEffect, useRef, useState } from "react";
@@ -7,17 +8,21 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { Link } from "react-scroll";
 
 export const Header = memo(function Header() {
+  const { width } = useScreenSize();
+
   const headerElement = useRef<HTMLDivElement>(null);
-  const [openNav, setOpenNav] = useState(true);
-  const { width } = useWindowSize();
+  const [openNavMobile, setOpenNavMobile] = useState(false);
+  const [isVisibleNavMobile, setIsVisibleNavMobile] = useState(false);
 
   const { setHeightHeader } = useContext(MyContext);
 
   useEffect(() => {
     if (width && width < 768) {
-      setOpenNav(false);
+      setOpenNavMobile(false);
+      setIsVisibleNavMobile(true);
     } else {
-      setOpenNav(true);
+      setOpenNavMobile(true);
+      setIsVisibleNavMobile(false);
     }
   }, [width]);
 
@@ -33,23 +38,40 @@ export const Header = memo(function Header() {
       <nav className="flex flex-col items-start w-screen md:flex-row md:justify-center md:items-center gap-6  text-white sm:text-sm md:text-base  lg:text-2xl font-bold text-start md:text-center">
         <RxHamburgerMenu
           className="md:hidden"
-          onClick={() => setOpenNav((prev) => !prev)}
+          onClick={() => {
+            console.log("toggle");
+            setOpenNavMobile((prev) => !prev);
+          }}
           size={30}
         />
 
-        {openNav
-          ? navList.map((navItem) => (
+        {isVisibleNavMobile
+          ? openNavMobile
+            ? navList.map((navItemMobile) => (
+                <Link
+                  key={navItemMobile.name}
+                  to={navItemMobile.link}
+                  smooth={true}
+                  duration={300}
+                  className="nav-link"
+                >
+                  {navItemMobile.name.charAt(0).toUpperCase() +
+                    navItemMobile.name.slice(1)}
+                </Link>
+              ))
+            : null
+          : navList.map((navItemDesktop) => (
               <Link
-                key={navItem.name}
-                to={navItem.link}
+                key={navItemDesktop.name}
+                to={navItemDesktop.link}
                 smooth={true}
                 duration={300}
                 className="nav-link"
               >
-                {navItem.name.charAt(0).toUpperCase() + navItem.name.slice(1)}
+                {navItemDesktop.name.charAt(0).toUpperCase() +
+                  navItemDesktop.name.slice(1)}
               </Link>
-            ))
-          : null}
+            ))}
       </nav>
     </div>
   );

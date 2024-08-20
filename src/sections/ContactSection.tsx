@@ -55,7 +55,7 @@ export const ContactSection = memo(function ContactSection() {
       <p className="text-center text-lg px-20 md:px-0">
         You can also find me on the following channels.
       </p>
-      <div className="flex flex-col md:flex-row flex-wrap justify-center items-start gap-6 pb-10 md:pb-0">
+      <div className="flex flex-col md:flex-row flex-wrap justify-center items-start gap-6 pb-10 md:pb-0 py-0 xl:py-4">
         {contactInfoList.map((contactInfo) => {
           return (
             <RenderIcon

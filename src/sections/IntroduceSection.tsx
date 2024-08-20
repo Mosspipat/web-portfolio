@@ -8,9 +8,12 @@ import { dataProfile } from "@/data";
 import { motion } from "framer-motion";
 import { memo, useContext } from "react";
 import { MyContext } from "@/context";
+import { useRouter } from "next/navigation";
 
 export const IntroduceSection = memo(function IntroduceSection() {
   const { heightHeader } = useContext(MyContext);
+
+  const router = useRouter();
 
   const ItemProfileDetail = ({
     title,
@@ -25,6 +28,13 @@ export const IntroduceSection = memo(function IntroduceSection() {
         <div>{des}</div>
       </div>
     );
+  };
+
+  const handleDownload = () => {
+    console.log("download");
+    // router.push(`/resume`);
+
+    window.open("/resume.pdf", "_blank");
   };
 
   return (
@@ -90,16 +100,26 @@ export const IntroduceSection = memo(function IntroduceSection() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col gap-3 divide-y divide-dashed divide-blue-100">
-            {dataProfile.map((item, index) => {
-              return (
-                <ItemProfileDetail
-                  title={item.key}
-                  des={item.value}
-                  key={index}
-                />
-              );
-            })}
+          <div className="flex flex-col gap-3 ">
+            <div className="divide-y divide-dashed divide-blue-100">
+              {dataProfile.map((item, index) => {
+                return (
+                  <ItemProfileDetail
+                    title={item.key}
+                    des={item.value}
+                    key={index}
+                  />
+                );
+              })}
+            </div>
+            <button
+              className="mt-4 px-8 py-2 bg-gradient-to-br from-red-700 to-sky-700 to-blue w-fit rounded-full mx-auto text-base text-white text-shadow-md  shadow-black shadow-md"
+              onClick={() => {
+                handleDownload();
+              }}
+            >
+              Download Resume
+            </button>
           </div>
         </div>
       </motion.div>
