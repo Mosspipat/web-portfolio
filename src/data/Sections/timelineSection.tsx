@@ -23,7 +23,7 @@ type TimelineVerticalData = {
 export const timelineVerticalData: TimelineVerticalData[] = [
   {
     icon: <MdWork />,
-    date: "2023-Present",
+    date: "2023-2024",
     department: "Frontend developer",
     company: "MagicBox solution",
     description:
