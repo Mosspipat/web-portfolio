@@ -31,7 +31,6 @@ export const IntroduceSection = memo(function IntroduceSection() {
   };
 
   const handleDownload = () => {
-    console.log("download");
     // router.push(`/resume`);
 
     window.open("/resume.pdf", "_blank");
