@@ -2,7 +2,13 @@ import CSharpIcon from "@/components/Icons/CSharpIcon";
 import NextJSIcon from "@/components/Icons/NextJSIcon";
 
 import { SkillItemProps, ToolItemProps } from "@/types";
-import { FaGitSquare, FaNode, FaUnity, FaWordpress } from "react-icons/fa";
+import {
+  FaGitSquare,
+  FaNode,
+  FaReact,
+  FaUnity,
+  FaWordpress,
+} from "react-icons/fa";
 import { FaVuejs, FaHtml5 } from "react-icons/fa6";
 import { HiCommandLine } from "react-icons/hi2";
 import { IoLogoCss3, IoLogoJavascript } from "react-icons/io5";
@@ -46,7 +52,12 @@ export const toolsSkill: ToolItemProps[] = [
   {
     name: "React JS",
     level: "Advanced",
-    iconElement: <TbBrandReactNative size={100} color="#60dafb" />,
+    iconElement: <FaReact size={100} color="#60dafb" />,
+  },
+  {
+    name: "React Native",
+    level: "Advanced",
+    iconElement: <TbBrandReactNative size={100} color="#00a8d9" />,
   },
   {
     name: "Vue.js",
