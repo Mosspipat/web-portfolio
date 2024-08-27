@@ -14,6 +14,7 @@ import { HiCommandLine } from "react-icons/hi2";
 import { IoLogoCss3, IoLogoJavascript } from "react-icons/io5";
 import {
   SiConstruct3,
+  SiExpress,
   SiSparkar,
   SiTypescript,
   SiUnrealengine,
@@ -78,6 +79,11 @@ export const toolsSkill: ToolItemProps[] = [
     name: "nodeJS",
     level: "Advanced",
     iconElement: <FaNode size={100} color="#89bc5c" />,
+  },
+  {
+    name: "Express",
+    level: "Intermediate",
+    iconElement: <SiExpress size={100} color="#393939" />,
   },
   {
     name: "wordPress",
