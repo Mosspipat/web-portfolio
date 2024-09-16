@@ -41,7 +41,7 @@ export const SkillSection = memo(function SkillSection() {
 
       <div>
         <TitleRender label="Framework website" />
-        <motion.div className="skill-list flex flex-wrap justify-center gap-10">
+        <motion.div className="skill-list flex flex-wrap justify-center gap-10 2xl:px-[400px]">
           {toolsSkill.map((tool, index) => {
             return <SkillItem {...tool} key={index} />;
           })}
