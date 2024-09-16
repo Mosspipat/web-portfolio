@@ -9,17 +9,19 @@ import {
   FaUnity,
   FaWordpress,
 } from "react-icons/fa";
-import { FaVuejs, FaHtml5 } from "react-icons/fa6";
+import { FaVuejs, FaHtml5, FaDatabase } from "react-icons/fa6";
 import { HiCommandLine } from "react-icons/hi2";
 import { IoLogoCss3, IoLogoJavascript } from "react-icons/io5";
+import { PiFileSqlFill } from "react-icons/pi";
 import {
   SiConstruct3,
   SiExpress,
+  SiMongodb,
   SiSparkar,
   SiTypescript,
   SiUnrealengine,
 } from "react-icons/si";
-import { TbBrandReactNative } from "react-icons/tb";
+import { TbBrandReactNative, TbSql } from "react-icons/tb";
 
 export const languageProgrammingSkill: SkillItemProps[] = [
   {
@@ -46,6 +48,11 @@ export const languageProgrammingSkill: SkillItemProps[] = [
     name: "C#",
     level: "Intermediate",
     iconElement: <CSharpIcon />,
+  },
+  {
+    name: "SQL",
+    level: "Intermediate",
+    iconElement: <FaDatabase size={100} color="#2f2e2e" />,
   },
 ];
 
@@ -94,6 +101,11 @@ export const toolsSkill: ToolItemProps[] = [
     name: "commandLine",
     level: "Beginner",
     iconElement: <HiCommandLine size={100} color="#202020" />,
+  },
+  {
+    name: "Mongodb",
+    level: "Beginner",
+    iconElement: <SiMongodb size={100} color="#4fab41" />,
   },
 ];
 
