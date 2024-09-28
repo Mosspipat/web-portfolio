@@ -13,8 +13,6 @@ import { useRouter } from "next/navigation";
 export const IntroduceSection = memo(function IntroduceSection() {
   const { heightHeader } = useContext(MyContext);
 
-  const router = useRouter();
-
   const ItemProfileDetail = ({
     title,
     des,
@@ -31,8 +29,6 @@ export const IntroduceSection = memo(function IntroduceSection() {
   };
 
   const handleDownload = () => {
-    // router.push(`/resume`);
-
     window.open("/resume.pdf", "_blank");
   };
 
