@@ -29,7 +29,7 @@ export const IntroduceSection = memo(function IntroduceSection() {
   };
 
   const handleDownload = () => {
-    window.open("/resume.pdf", "_blank");
+    window.open("/resume_en.pdf", "_blank");
   };
 
   return (

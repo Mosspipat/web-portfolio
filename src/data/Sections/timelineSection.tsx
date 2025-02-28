@@ -23,6 +23,14 @@ type TimelineVerticalData = {
 export const timelineVerticalData: TimelineVerticalData[] = [
   {
     icon: <MdWork />,
+    date: "2024-2025",
+    department: "FullStack developer",
+    company: "Synergy Global Network Co., Ltd.",
+    description:
+      "Manage and maintain an efficient insurance back-office system and CRM platform to streamline operations and enhance customer relationship management.",
+  },
+  {
+    icon: <MdWork />,
     date: "2023-2024",
     department: "Frontend developer",
     company: "MagicBox solution",
@@ -35,7 +43,7 @@ export const timelineVerticalData: TimelineVerticalData[] = [
     department: "Web developer",
     company: "VIZ Studio",
     description:
-      "develop website with AR experience and filter effect to share in social platform.create game content with game engine.",
+      "Develop website with AR experience and filter effect to share in social platform.create game content with game engine.",
   },
   {
     icon: <MdWork />,
