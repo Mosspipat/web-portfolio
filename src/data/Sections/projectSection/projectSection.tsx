@@ -19,10 +19,10 @@ export type WorkList = {
 };
 
 const projectWebsiteList: WorkList[] = [
-  {
-    label: "websiteMovieMania",
-    link: "https://movie-mania-plum.vercel.app/",
-  },
+  // {
+  //   label: "websiteMovieMania",
+  //   link: "https://movie-mania-plum.vercel.app/",
+  // },
   {
     label: "webCarModel3D",
     link: "https://63a9af09d922a824ecfb307f--ar-car-3d.netlify.app/",
