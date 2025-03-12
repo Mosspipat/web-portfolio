@@ -62,6 +62,7 @@ export const Header = memo(function Header() {
             : null
           : navList.map((navItemDesktop) => (
               <Link
+                style={{ cursor: "pointer" }}
                 key={navItemDesktop.name}
                 to={navItemDesktop.link}
                 smooth={true}

@@ -8,6 +8,8 @@ import { experienceData } from "@/data";
 import { ItemProjectSection } from "@/components";
 
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import WebsitePortfolio from "./WebsitePortfolio/WebsitePortfolio";
+import { websiteProject } from "@/data/Sections/projectSection/websiteProject";
 
 export const ProjectsSection = memo(function ProjectsSection() {
   const { heightHeader } = useContext(MyContext);
@@ -40,6 +42,21 @@ export const ProjectsSection = memo(function ProjectsSection() {
           development, social platform effects, and AR/VR projects, specializing
           in creating dynamic and immersive digital experiences.
         </motion.p>
+        {/* carousel */}
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-4 px-10 mt-10">
+          {websiteProject.map((item, index) => {
+            return (
+              <WebsitePortfolio
+                key={`item.project_name-${index}`}
+                title={item.title}
+                projectName={item.project_name}
+                projectDescription={item.project_description}
+                slides={item.project_image}
+                footer={item.footer}
+              />
+            );
+          })}
+        </div>
         {experienceData.map((experience, index) => {
           const isReverse = index % 2 === 0;
           return (

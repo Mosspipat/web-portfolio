@@ -10,9 +10,7 @@ import gameEngine3 from "/public/portfolio/gameEngine/game-5.png";
 import gameFilter1 from "/public/portfolio/filter/game-1.png";
 import gameFilter2 from "/public/portfolio/filter/game-2.png";
 
-import motion from "framer-motion";
-
-import "../../app/globals.css";
+import "@/app/globals.css";
 
 export type WorkList = {
   label: string;
@@ -92,7 +90,7 @@ const gameFilterList: StaticImageData[] = [gameFilter1, gameFilter2];
 
 export const experienceData: ExperienceItem[] = [
   {
-    title: "Web Developer",
+    title: "3D On WebSite",
     description:
       "Work as a web design editor to manage static website content using the React framework. The website content is handled through a CMS (Content Management System) that has been implemented to optimize and conserve remaining development resources.",
     image: "/portfolio/dog-golden.jpg",
@@ -164,7 +162,7 @@ export const experienceData: ExperienceItem[] = [
     showcaseProject: projectSocialPlatformList,
   },
   {
-    title: "AR (Augmented Reality) \n /VR (Virtual Reality) \n on website",
+    title: "AR / VR on website",
     description:
       "Show 3D Model on website and play with them in real world or let you through in virtual reality.",
     image: "/portfolio/dog-golden.jpg",

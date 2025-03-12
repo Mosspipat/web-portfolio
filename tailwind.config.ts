@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+const flowbite = require("flowbite-react/tailwind");
+/** @type {import('tailwindcss').Config} */
 
 const {
   default: flattenColorPalette,
@@ -11,6 +13,7 @@ const config: Config = {
     "./src/sections/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/data/Sections/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    flowbite.content(),
   ],
   darkMode: "class",
   plugins: [
@@ -34,6 +37,7 @@ const config: Config = {
         ["responsive", "hover"]
       );
     },
+    flowbite.plugin(),
   ],
   theme: {
     extend: {
